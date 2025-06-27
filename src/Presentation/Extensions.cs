@@ -8,6 +8,9 @@ using EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementation;
 using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Infrastructure.Files.Parsers;
 using EducationProcessAPI.Domain.Entities;
+using EducationProcessAPI.Domain.Entities.LessonAnalyze;
+using Application.Validators;
+using FluentValidation;
 
 
 namespace EducationProcess.Presentation
@@ -31,8 +34,11 @@ namespace EducationProcess.Presentation
             builder.Services.AddTransient<IAnalysisRepository, AnalysisRepository>();
 
             builder.Services.AddTransient<IParseFile<Group>, WordParseLesson>();
+            builder.Services.AddTransient<IParseFile<AnalysisCriteria>, WordParserGrades>();
 
             builder.Services.AddTransient<IOperationResultService, OperationResultService>();
+
+            builder.Services.AddScoped<IValidator<IFormFile>, UploadFileValidator>();
 
         }
 

@@ -30,14 +30,7 @@ namespace EducationProcess.Presentation.Controllers
                                 request.StartYear,
                                 request.UnionId);
 
-            if (result.Item1 == AppOperationStatus.Success)
-            {
-                return Ok(result.Item2);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
         [HttpPost("upload")]

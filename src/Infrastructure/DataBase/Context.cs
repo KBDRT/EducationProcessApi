@@ -1,10 +1,9 @@
-﻿using EducationProcessAPI.Domain.Entities;
+﻿using Domain.Entities.Analysis;
+using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
-using EducationProcessAPI.Infrastructure.DataBase;
 using EducationProcessAPI.Infrastructure.DataBase.Configurations;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+
 public class ApplicationContext : DbContext
 {
 
@@ -26,6 +25,8 @@ public class ApplicationContext : DbContext
     public DbSet<AnalysisCriteria> AnalyzeCriterions { get; set; } = null!;
 
     public DbSet<CriterionOption> CriterionOptions { get; set; } = null!;
+
+    public DbSet<AnalysisDocument> AnalysisDocuments { get; set; } = null!;
 
     public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)

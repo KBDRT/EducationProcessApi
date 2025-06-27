@@ -12,13 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace EducationProcess.Presentation.Controllers
 {
 
-    // Создать учителя, редактировать учителя, удалить учителя, получить учителей
-    // Создать направление и тд
-    // Создать группу
-    // PUT - перезаписывает объект PATCH - отдельные поля
-
-
-
     [ApiController]
     [Route("[controller]")]
     public class TeachersController : ControllerBase
@@ -39,14 +32,7 @@ namespace EducationProcess.Presentation.Controllers
                                     request.Patronymic,
                                     request.BirthDate);
 
-            if (result.Item1 == AppOperationStatus.Success)
-            {
-                return Ok(result.Item2);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
         [HttpGet("{id:guid}")]
@@ -62,7 +48,6 @@ namespace EducationProcess.Presentation.Controllers
                 return NotFound();
             }
         }
-
 
 
         [HttpDelete]

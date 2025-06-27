@@ -1,4 +1,5 @@
-﻿using EducationProcessAPI.Application.DTO;
+﻿using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
 using System;
@@ -12,7 +13,7 @@ namespace EducationProcessAPI.Application.Services.CRUD.Definition
 {
     public interface ITeacherService
     {
-        public Task<(AppOperationStatus, Guid)> CreateAsync(string surname, string name, string patronymic, DateOnly birthDate);
+        public Task<Result<Guid>> CreateAsync(string surname, string name, string patronymic, DateOnly birthDate);
 
         public Task<TeacherDto?> GetByIdAsync(Guid id);
 

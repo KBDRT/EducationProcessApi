@@ -1,4 +1,6 @@
 ﻿
+using Domain.Entities.Analysis;
+using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 
 namespace EducationProcessAPI.Application.Abstractions.Repositories
@@ -13,6 +15,11 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<List<AnalysisCriteria>?> GetByTargetAsync(AnalysisTarget target);
 
+        public Task CreateRangeAsync(List<AnalysisCriteria> criterias);
+
+        public Task DeleteByTargetAsync(AnalysisTarget target);
+
+        public Task<Guid> CreateDocumentAsync(AnalysisDocument document);
 
     }
 }

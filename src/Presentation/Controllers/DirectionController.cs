@@ -1,10 +1,5 @@
 ﻿using EducationProcess.Presentation.Contracts.ArtDirection;
-using EducationProcessAPI.Application.Services;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
-using EducationProcessAPI.Application.ServiceUtils;
-using EducationProcessAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationProcess.Presentation.Controllers
@@ -29,15 +24,7 @@ namespace EducationProcess.Presentation.Controllers
                                                              artDirectionRequest.ShortName,
                                                              artDirectionRequest.Description);
 
-            if (result.Item1 == AppOperationStatus.Success)
-            {
-                return Ok(result.Item2);
-            }
-            else
-            {
-                return BadRequest();
-            }
-
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
         [HttpGet]

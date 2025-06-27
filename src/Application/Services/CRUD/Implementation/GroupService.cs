@@ -1,9 +1,11 @@
-﻿using EducationProcessAPI.Application.Services.CRUD.Definition;
+﻿using Application;
+using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Application.Parsers;
+using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
-using EducationProcessAPI.Application.Abstractions.Repositories;
 using Microsoft.AspNetCore.Http;
-using EducationProcessAPI.Application.Parsers;
 
 namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 {
@@ -22,13 +24,13 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             _fileParser = fileParser;
         }
 
-        public async Task<(AppOperationStatus, Guid)> CreateAsync(string name, int startYear, Guid unionId)
+        public async Task<Result<Guid>> CreateAsync(string name, int startYear, Guid unionId)
         {
             ArtUnion? union = await _unionRepository.GetByIdAsync(unionId);
 
             if (union == null)
             {
-                return (AppOperationStatus.NotFound, Guid.Empty);
+                return Result.Failure<Guid>("Union not found");
             }
             else
             {
@@ -41,7 +43,8 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                 };
 
                 Guid id = await _groupRepository.CreateAsync(newGroup);
-                return (AppOperationStatus.Success, id);
+
+                return id.CheckGuidForEmpty();
             }
         }
 

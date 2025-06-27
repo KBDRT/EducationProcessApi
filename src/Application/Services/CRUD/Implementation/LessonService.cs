@@ -1,9 +1,11 @@
-﻿using EducationProcessAPI.Application.DTO;
+﻿using Application;
+using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
-using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Application.Parsers;
 
 
 namespace EducationProcessAPI.Application.Services.CRUD.Implementation
@@ -21,13 +23,13 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             _groupRepository = groupRepository;
         }
 
-        public async Task<(AppOperationStatus, Guid)> CreateAsync(LessonDto lesson)
+        public async Task<Result<Guid>> CreateAsync(LessonDto lesson)
         {
             Group? group = await _groupRepository.GetByIdAsync(lesson.groupId);
 
             if (group == null)
             {
-                return (AppOperationStatus.NotFound, Guid.Empty);
+                return Result.Failure<Guid>("Group not found");
             }
             else
             {
@@ -44,7 +46,8 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                 };
 
                 Guid id = await _lessonRepository.CreateAsync(newLesson);
-                return (AppOperationStatus.Success, id);
+
+                return id.CheckGuidForEmpty();
             }
         }
 
@@ -61,15 +64,18 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 
             List<LessonsDateDto> lessonShort = new List<LessonsDateDto>();
 
-            foreach(var lesson in lessons)
+            if (lessons != null)
             {
-                DateOnly? dateOnly = null;
-                if (lesson.Date != null)
+                foreach (var lesson in lessons)
                 {
-                    dateOnly = DateOnly.FromDateTime((DateTime)lesson.Date);
-                }
+                    DateOnly? dateOnly = null;
+                    if (lesson.Date != null)
+                    {
+                        dateOnly = DateOnly.FromDateTime((DateTime)lesson.Date);
+                    }
 
-                lessonShort.Add(new(lesson.Id, dateOnly));
+                    lessonShort.Add(new(lesson.Id, dateOnly));
+                }
             }
 
             return lessonShort;

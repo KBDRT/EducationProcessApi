@@ -1,7 +1,9 @@
-﻿using EducationProcess.Presentation.Contracts;
+﻿using Application.DTO;
+using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationProcess.Presentation.Controllers
@@ -12,10 +14,12 @@ namespace EducationProcess.Presentation.Controllers
     {
 
         private readonly IAnalysisService _analysisService;
+        private readonly IValidator<IFormFile> _validator;
 
-        public AnalysisController(IAnalysisService analysisService)
+        public AnalysisController(IAnalysisService analysisService, IValidator<IFormFile> validator)
         {
             _analysisService = analysisService;
+            _validator = validator;
         }
 
 
@@ -31,35 +35,60 @@ namespace EducationProcess.Presentation.Controllers
                 request.Order
             );
 
-            var id = await _analysisService.CreateCriteriaAsync(criteriaDto);
+            var result = await _analysisService.CreateCriteriaAsync(criteriaDto);
 
-            if (id != Guid.Empty)
-            {
-                return Ok(id);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteByTargetAsync(AnalysisTarget target)
+        {
+            await _analysisService.DeleteByTargetAsync(target);
+
+            return Ok();
+        }
 
 
         [HttpPost("options")]
         public async Task<ActionResult<Guid>> CreateOptionAsync([FromBody] CreateOptionRequest request)
         {
+            var result = await _analysisService.CreateOptionAsync(request.criteriaId, request.name);
 
-            var id = await _analysisService.CreateOptionAsync(request.criteriaId, request.name);
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
+        }
 
-            if (id != Guid.Empty)
-            {
-                return Ok(id);
-            }
-            else
+
+        [HttpPost("document")]
+        public async Task<ActionResult<Guid>> CreateDocumentAsync([FromBody] CreateAnalysisDocumentDto request)
+        {
+            var result = await _analysisService.CreateAnalysisDocumentAsync(request);
+
+            return result.Item1.IsValid ? Ok(result.Item2) : BadRequest(result.Item1.Errors);
+        }
+
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> CreateFromFileAsync([FromForm] CreateAnalysisFromFileRequest request)
+        {
+            var file = request.File;
+
+            if (file == null)
             {
                 return BadRequest();
             }
+
+            var validator = await _validator.ValidateAsync(file);
+
+            if (!validator.IsValid)
+            {
+                return BadRequest(validator.Errors);
+            }
+
+            await _analysisService.CreateFromFileAsync(request);
+
+            return Ok();
         }
+
 
         [HttpGet]
         public async Task<ActionResult<List<GetCriteriasWithOptionsDto>>> GetCriteriasByTargetAsync(AnalysisTarget target)

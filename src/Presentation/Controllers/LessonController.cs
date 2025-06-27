@@ -40,21 +40,14 @@ namespace EducationProcess.Presentation.Controllers
 
             var result = await _lessonService.CreateAsync(newLesson);
 
-            if (result.Item1 == AppOperationStatus.Success)
-            {
-                return Ok(result.Item2);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
         [HttpGet("{groupId:guid}")]
         public async Task<ActionResult<LessonShortDto>> GetByGroupIdAsync(Guid groupId)
         {
             var lessons = await _lessonService.GetByGroupIdAsync(groupId);
-            if (lessons != null)
+            if (lessons?.Count > 0)
             {
                 return Ok(lessons);
             }

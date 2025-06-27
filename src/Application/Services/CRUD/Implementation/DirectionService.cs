@@ -1,4 +1,6 @@
-﻿using EducationProcessAPI.Application.Abstractions.Repositories;
+﻿using Application;
+using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.Services.Helpers.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
@@ -17,7 +19,7 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             _operationResult = operationResult;
         }
 
-        public async Task<(AppOperationStatus, Guid)> CreateAsync(string fullName, string shortName, string description)
+        public async Task<Result<Guid>> CreateAsync(string fullName, string shortName, string description)
         {
             var newDirection = new ArtDirection()
             {
@@ -28,7 +30,8 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             };
 
             var id = await _directionRepository.CreateAsync(newDirection);
-            return (_operationResult.GetStatus(id), id);
+
+            return id.CheckGuidForEmpty();
         }
 
         public async Task<List<ArtDirection>> GetAsync()

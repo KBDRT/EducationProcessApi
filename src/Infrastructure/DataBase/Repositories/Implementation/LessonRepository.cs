@@ -35,5 +35,15 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
                               .Where(x => x.Group.Id == groupId)
                               .ToListAsync() ?? null;
         }
+
+        public async Task<Lesson?> GetWithIncludesByIdAsync(Guid id)
+        {
+            return await _context.Lessons
+                            .Include(x => x.Group)
+                            .ThenInclude(x => x.ArtUnion)
+                            .ThenInclude(x => x.Teacher)
+                            .AsNoTracking()
+                            .SingleOrDefaultAsync(x => x.Id == id) ?? null;
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<Lesson?> GetByIdAsync(Guid id);
 
+        public Task<Lesson?> GetWithIncludesByIdAsync(Guid id);
+
     }
 }

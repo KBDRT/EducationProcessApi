@@ -1,4 +1,5 @@
-﻿using EducationProcessAPI.Application.DTO;
+﻿using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +13,7 @@ namespace EducationProcessAPI.Application.Services.CRUD.Definition
 {
     public interface ILessonService
     {
-        public Task<(AppOperationStatus, Guid)> CreateAsync(LessonDto lesson);
+        public Task<Result<Guid>> CreateAsync(LessonDto lesson);
 
         public Task<List<LessonsDateDto>?> GetByGroupIdAsync(Guid id);
 

@@ -1,9 +1,11 @@
-﻿using EducationProcessAPI.Application.DTO;
+﻿using Application;
+using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.Services.Helpers.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
-using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Application.Services.CRUD.Definition;
 
 namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 {
@@ -20,7 +22,7 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             _operationResult = operationResult;
         }
 
-        public async Task<(AppOperationStatus, Guid)> CreateAsync(string surname, string name, string patronymic, DateOnly birthDate)
+        public async Task<Result<Guid>> CreateAsync(string surname, string name, string patronymic, DateOnly birthDate)
         {
             var newTeacher = new Teacher() 
             { 
@@ -32,7 +34,8 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             };
 
             var id = await _teacherRepository.CreateAsync(newTeacher);
-            return (_operationResult.GetStatus(id), id);
+
+            return id.CheckGuidForEmpty();
         }
 
         public async Task<int> DeleteAllAsync()

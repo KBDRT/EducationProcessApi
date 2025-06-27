@@ -1,10 +1,5 @@
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EducationProcess.Presentation;
-using EducationProcessAPI.Application.Services;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connection, 
-                                                          b => b.MigrationsAssembly("EducationProcess.Presentation")));
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connection));
 
 
 builder.AddServices();

@@ -55,6 +55,25 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "Analysis"
+        ],
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/AnalysisTarget"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "get": {
         "tags": [
           "Analysis"
@@ -148,6 +167,101 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/Analysis/document": {
+      "post": {
+        "tags": [
+          "Analysis"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Analysis/upload": {
+      "post": {
+        "tags": [
+          "Analysis"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Target": {
+                    "$ref": "#/components/schemas/AnalysisTarget"
+                  },
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IsDeletePrev": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "encoding": {
+                "Target": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                },
+                "IsDeletePrev": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -592,18 +706,6 @@
         }
       }
     },
-    "/Teachers/test": {
-      "get": {
-        "tags": [
-          "Teachers"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/Teachers/{year}": {
       "get": {
         "tags": [
@@ -845,6 +947,39 @@
         },
         "additionalProperties": false
       },
+      "CreateAnalysisDocumentDto": {
+        "type": "object",
+        "properties": {
+          "lessonId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "target": {
+            "$ref": "#/components/schemas/AnalysisTarget"
+          },
+          "checkDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "resultDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "auditorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "optionsId": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateDirectionRequest": {
         "type": "object",
         "properties": {
@@ -967,6 +1102,10 @@
             "type": "string",
             "nullable": true
           },
+          "criteriaId": {
+            "type": "string",
+            "format": "uuid"
+          },
           "options": {
             "type": "array",
             "items": {
@@ -1001,6 +1140,10 @@
           "optionName": {
             "type": "string",
             "nullable": true
+          },
+          "optionId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

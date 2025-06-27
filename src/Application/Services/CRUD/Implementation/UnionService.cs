@@ -1,9 +1,11 @@
-﻿using EducationProcessAPI.Application.DTO;
+﻿using Application;
+using CSharpFunctionalExtensions;
+using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.Services.Helpers.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
-using EducationProcessAPI.Application.Services.CRUD.Definition;
-using EducationProcessAPI.Application.Abstractions.Repositories;
 
 namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 {
@@ -26,14 +28,14 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             _teacherRepository = teacherRepository;
         }
 
-        public async Task<(AppOperationStatus, Guid)> CreateAsync(CreateUnionDto artUnion)
+        public async Task<Result<Guid>> CreateAsync(CreateUnionDto artUnion)
         {
             Teacher? teacher = await _teacherRepository.GetByIdAsync(artUnion.TeacherId);
             ArtDirection? direction = await _directionRepository.GetByIdAsync(artUnion.DirectionId);
 
             if (teacher == null || direction == null)
             {
-                return (AppOperationStatus.NotFound, Guid.Empty);
+                return Result.Failure<Guid>("Teacher or direction not found");
             }
             else
             {
@@ -48,7 +50,8 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                 };
 
                 Guid id = await _unionRepository.CreateAsync(newArtUnion);
-                return (_operationResult.GetStatus(id), id);
+
+                return id.CheckGuidForEmpty();
             }
         }
 

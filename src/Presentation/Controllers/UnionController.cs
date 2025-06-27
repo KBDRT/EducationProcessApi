@@ -1,12 +1,7 @@
 ﻿using EducationProcess.Presentation.Contracts.ArtUnion;
-using EducationProcess.Presentation.Contracts.Teachers;
 using EducationProcessAPI.Application.DTO;
-using EducationProcessAPI.Application.Services;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.ServiceUtils;
-using EducationProcessAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationProcess.Presentation.Controllers
@@ -38,14 +33,7 @@ namespace EducationProcess.Presentation.Controllers
 
             var result = await _unionService.CreateAsync(newArtUnion);
 
-            if (result.Item1 == AppOperationStatus.Success)
-            {
-                return Ok(result.Item2);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Error);
         }
 
 

@@ -11,8 +11,6 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task CreateRangeAsync(List<Group> groups);
 
-  
-
 
 
     }

@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "EducationProcess.Presentation.Controllers.AnalysisController",
+    "Method": "DeleteByTargetAsync",
+    "RelativePath": "Analysis",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "target",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EducationProcess.Presentation.Controllers.AnalysisController",
     "Method": "GetCriteriasByTargetAsync",
     "RelativePath": "Analysis",
     "HttpMethod": "GET",
@@ -42,6 +58,32 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[EducationProcessAPI.Application.DTO.GetCriteriasWithOptionsDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EducationProcess.Presentation.Controllers.AnalysisController",
+    "Method": "CreateDocumentAsync",
+    "RelativePath": "Analysis/document",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTO.CreateAnalysisDocumentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -76,6 +118,32 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "EducationProcess.Presentation.Controllers.AnalysisController",
+    "Method": "CreateFromFileAsync",
+    "RelativePath": "Analysis/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Target",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDeletePrev",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "EducationProcess.Presentation.Controllers.DirectionController",
@@ -363,16 +431,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "EducationProcess.Presentation.Controllers.TeachersController",
-    "Method": "GetByIdAsync",
-    "RelativePath": "Teachers/test",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "EducationProcess.Presentation.Controllers.UnionController",
