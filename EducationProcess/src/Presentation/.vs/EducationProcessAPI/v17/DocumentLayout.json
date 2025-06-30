@@ -1,0 +1,1303 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Migrations\\20250625102853_NewTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250625102853_NewTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\createanalysiscriteriadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\analysiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\analysiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\analysis\\analysiscriterion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\ianalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\getcriteriaswithoptionsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\analysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\lessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\directionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\analysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\ianalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\directioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\directioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\createoptionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\createoptionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\controllers\\unioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:controllers\\unioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\analysis\\criterionoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\igrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\directionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\idirectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\getgroupsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\getuniondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\createuniondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\createanalysiscriteriarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\createanalysiscriteriarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\iteacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\idirectionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\groupconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\analyzecriterionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\teacherconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\lessonconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\artdirection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BECE249B-DC6B-4829-B46F-1D9128873D1D}|..\\EducationProcessAPI.Domain\\Domain.csproj|k:\\github\\educationprocessapi\\educationprocessapi.domain\\entities\\artunion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\artdirectionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\ilessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\lessons\\lessonsdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\lessons\\lessonshortdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\teacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\implementation\\unionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\iteacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\lessons\\lessondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\serviceutils\\appoperationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\files\\parsers\\wordparsebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\files\\parsers\\iparsefile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\files\\parsers\\wordparselesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\implementation\\unionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\files\\parsers\\iopenfileforparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\teacher\\teachersforeduyeardto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\teacher\\parseeduplansdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\crud\\definition\\iunionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\lesson\\createlessonrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\lesson\\createlessonrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\group\\creategroupsfromfilerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\group\\creategroupsfromfilerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\teachers\\baseteacherrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\teachers\\baseteacherrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\repositories\\definition\\iunionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\teachers\\updateteacherbirthrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\teachers\\updateteacherbirthrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\configurations\\artunionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32EFB595-030D-4AD7-84B3-766B75BEA6CD}|..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj|k:\\github\\educationprocessapi\\educationprocessapi.infrastructure\\database\\contract\\teacherrepositoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\dto\\teacher\\teacherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\teachers\\updateteacherrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\teachers\\updateteacherrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\group\\creategrouprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\group\\creategrouprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\artunion\\createunionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\artunion\\createunionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|k:\\github\\educationprocessapi\\educationprocessapi.presentation\\contracts\\artdirection\\createdirectionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F6D9110-6B83-4BD1-805D-739295A9EC11}|Presentation.csproj|solutionrelative:contracts\\artdirection\\createdirectionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\helpers\\implementation\\operationresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{895AEC5B-79F1-4678-BAFA-3DB2A371F017}|..\\EducationProcessAPI.Application\\Application.csproj|k:\\github\\educationprocessapi\\educationprocessapi.application\\services\\helpers\\definition\\ioperationresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-26T08:04:15.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Presentation.csproj",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Presentation.csproj",
+              "RelativeDocumentMoniker": "Presentation.csproj",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Presentation.csproj",
+              "RelativeToolTip": "Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-21T08:45:19.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-20T10:01:06.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Extensions.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Extensions.cs",
+              "RelativeDocumentMoniker": "Extensions.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Extensions.cs",
+              "RelativeToolTip": "Extensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:29:23.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Infrastructure.csproj",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-20T14:01:05.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Domain.csproj",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Domain.csproj",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Domain.csproj",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Domain.csproj",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-23T11:55:32.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T08:57:29.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AnalysisController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\AnalysisController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AnalysisController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\AnalysisController.cs",
+              "RelativeToolTip": "Controllers\\AnalysisController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:17:41.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateAnalysisCriteriaDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\CreateAnalysisCriteriaDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\CreateAnalysisCriteriaDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\CreateAnalysisCriteriaDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\CreateAnalysisCriteriaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:42:00.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AnalysisCriterion.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Analysis\\AnalysisCriterion.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\Analysis\\AnalysisCriterion.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Analysis\\AnalysisCriterion.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\Analysis\\AnalysisCriterion.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:18:18.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TeacherService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\TeacherService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\TeacherService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\TeacherService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\TeacherService.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAYwJEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:31:25.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IAnalysisService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IAnalysisService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IAnalysisService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IAnalysisService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IAnalysisService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:18:13.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GetCriteriasWithOptionsDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetCriteriasWithOptionsDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\GetCriteriasWithOptionsDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetCriteriasWithOptionsDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\GetCriteriasWithOptionsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T12:09:05.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AnalysisService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\AnalysisService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\AnalysisService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\AnalysisService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\AnalysisService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAhwFAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:18:22.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LessonService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\LessonService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\LessonService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\LessonService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\LessonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T12:04:37.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DirectionService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\DirectionService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\DirectionService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\DirectionService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\DirectionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:53:32.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AnalysisRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\AnalysisRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\AnalysisRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\AnalysisRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\AnalysisRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAjwCUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:16:17.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IAnalysisRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IAnalysisRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IAnalysisRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IAnalysisRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IAnalysisRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:15:39.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TeacherController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\TeacherController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TeacherController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\TeacherController.cs",
+              "RelativeToolTip": "Controllers\\TeacherController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswDgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T11:44:58.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LessonController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\LessonController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LessonController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\LessonController.cs",
+              "RelativeToolTip": "Controllers\\LessonController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwBsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:37:49.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GroupController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\GroupController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GroupController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\GroupController.cs",
+              "RelativeToolTip": "Controllers\\GroupController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowBkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:43:18.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DirectionController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\DirectionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DirectionController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\DirectionController.cs",
+              "RelativeToolTip": "Controllers\\DirectionController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowBgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:52:28.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CreateOptionRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\CreateOptionRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\CreateOptionRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\CreateOptionRequest.cs",
+              "RelativeToolTip": "Contracts\\CreateOptionRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:59:00.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UnionController.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\UnionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UnionController.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Controllers\\UnionController.cs",
+              "RelativeToolTip": "Controllers\\UnionController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:10:27.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CriterionOption.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Analysis\\CriterionOption.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\Analysis\\CriterionOption.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Analysis\\CriterionOption.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\Analysis\\CriterionOption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:20:04.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IGroupRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IGroupRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IGroupRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IGroupRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IGroupRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:02:32.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DirectionRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\DirectionRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\DirectionRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\DirectionRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\DirectionRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:37:01.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IDirectionService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IDirectionService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IDirectionService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IDirectionService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IDirectionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:53:10.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GetGroupsDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetGroupsDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\GetGroupsDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetGroupsDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\GetGroupsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T10:40:18.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GetUnionDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetUnionDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\GetUnionDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\GetUnionDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\GetUnionDto.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwCMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T10:26:15.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CreateUnionDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\CreateUnionDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\CreateUnionDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\CreateUnionDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\CreateUnionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T16:34:08.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CreateAnalysisCriteriaRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\CreateAnalysisCriteriaRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\CreateAnalysisCriteriaRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\CreateAnalysisCriteriaRequest.cs",
+              "RelativeToolTip": "Contracts\\CreateAnalysisCriteriaRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:39:42.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ITeacherRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ITeacherRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ITeacherRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ITeacherRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ITeacherRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T13:40:07.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "LessonRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\LessonRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\LessonRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\LessonRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\LessonRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:31:38.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IDirectionRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IDirectionRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IDirectionRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IDirectionRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IDirectionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:38:33.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "GroupRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\GroupRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\GroupRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\GroupRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\GroupRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA8wBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:03:20.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "GroupConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\GroupConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\GroupConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\GroupConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\GroupConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:02:36.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "AnalyzeCriterionConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\AnalyzeCriterionConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\AnalyzeCriterionConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\AnalyzeCriterionConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\AnalyzeCriterionConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:27:51.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Context.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Context.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Context.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Context.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Context.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T10:00:12.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "IGroupService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IGroupService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IGroupService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IGroupService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IGroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:05:20.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ILessonRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ILessonRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ILessonRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ILessonRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\ILessonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:31:21.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "TeacherConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\TeacherConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\TeacherConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\TeacherConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\TeacherConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:03:18.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Lesson.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Lesson.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\Lesson.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Lesson.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\Lesson.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAcwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:00:51.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "LessonConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\LessonConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\LessonConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\LessonConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\LessonConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T07:37:32.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Group.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Group.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\Group.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Group.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\Group.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:19:21.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Teacher.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\Teacher.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\Teacher.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\Teacher.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:12:37.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ArtDirection.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\ArtDirection.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\ArtDirection.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\ArtDirection.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\ArtDirection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T14:28:09.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ArtUnion.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\ArtUnion.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Domain\\Entities\\ArtUnion.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Domain\\Entities\\ArtUnion.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Domain\\Entities\\ArtUnion.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:24:33.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ArtDirectionConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtDirectionConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtDirectionConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtDirectionConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtDirectionConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:41:58.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20250625102853_NewTables.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Migrations\\20250625102853_NewTables.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250625102853_NewTables.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Migrations\\20250625102853_NewTables.cs",
+              "RelativeToolTip": "Migrations\\20250625102853_NewTables.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:28:53.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "ILessonService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ILessonService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ILessonService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ILessonService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ILessonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAArwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:34:32.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "LessonsDateDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonsDateDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonsDateDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonsDateDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonsDateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:01:25.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "LessonShortDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonShortDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonShortDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonShortDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonShortDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T09:36:30.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "TeacherRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\TeacherRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\TeacherRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\TeacherRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\TeacherRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T13:40:36.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "UnionRepository.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\UnionRepository.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\UnionRepository.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\UnionRepository.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Implementation\\UnionRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAApwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:23:19.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "ITeacherService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ITeacherService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ITeacherService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ITeacherService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\ITeacherService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAlwBoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T09:36:26.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "LessonDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Lessons\\LessonDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:36:15.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "AppOperationStatus.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\ServiceUtils\\AppOperationStatus.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\ServiceUtils\\AppOperationStatus.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\ServiceUtils\\AppOperationStatus.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\ServiceUtils\\AppOperationStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T13:49:24.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "WordParseBase.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseBase.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseBase.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseBase.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseBase.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAASwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T13:21:45.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "IParseFile.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IParseFile.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IParseFile.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IParseFile.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IParseFile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T13:20:42.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "Extensions.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Extensions.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Extensions.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Extensions.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Extensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T09:47:40.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "WordParseLesson.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseLesson.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseLesson.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseLesson.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\WordParseLesson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T13:25:50.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\GroupService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\GroupService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\GroupService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\GroupService.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAMwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:10:34.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "UnionService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\UnionService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\UnionService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\UnionService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Implementation\\UnionService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAcwDAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T11:47:35.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "IOpenFileForParse.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IOpenFileForParse.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IOpenFileForParse.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IOpenFileForParse.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\Files\\Parsers\\IOpenFileForParse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T09:39:56.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "TeachersForEduYearDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\TeachersForEduYearDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\TeachersForEduYearDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\TeachersForEduYearDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\TeachersForEduYearDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T08:56:07.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "ParseEduPlansDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\ParseEduPlansDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\ParseEduPlansDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\ParseEduPlansDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\ParseEduPlansDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T07:16:48.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "IUnionService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IUnionService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IUnionService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IUnionService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\CRUD\\Definition\\IUnionService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAowBIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T11:47:26.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "CreateLessonRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Lesson\\CreateLessonRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Lesson\\CreateLessonRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Lesson\\CreateLessonRequest.cs",
+              "RelativeToolTip": "Contracts\\Lesson\\CreateLessonRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T12:02:42.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "CreateGroupsFromFileRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Group\\CreateGroupsFromFileRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Group\\CreateGroupsFromFileRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Group\\CreateGroupsFromFileRequest.cs",
+              "RelativeToolTip": "Contracts\\Group\\CreateGroupsFromFileRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T07:49:43.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "BaseTeacherRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\BaseTeacherRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Teachers\\BaseTeacherRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\BaseTeacherRequest.cs",
+              "RelativeToolTip": "Contracts\\Teachers\\BaseTeacherRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T10:56:09.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "IUnionService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IUnionService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IUnionService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IUnionService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Repositories\\Definition\\IUnionService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAASwBAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:23:13.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "UpdateTeacherBirthRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\UpdateTeacherBirthRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Teachers\\UpdateTeacherBirthRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\UpdateTeacherBirthRequest.cs",
+              "RelativeToolTip": "Contracts\\Teachers\\UpdateTeacherBirthRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T14:52:46.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "ArtUnionConfiguration.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtUnionConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtUnionConfiguration.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtUnionConfiguration.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Configurations\\ArtUnionConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:17:32.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "TeacherRepositoryRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Contract\\TeacherRepositoryRequest.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Contract\\TeacherRepositoryRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Infrastructure\\DataBase\\Contract\\TeacherRepositoryRequest.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Infrastructure\\DataBase\\Contract\\TeacherRepositoryRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T14:15:04.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "TeacherDto.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\TeacherDto.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\TeacherDto.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\DTO\\Teacher\\TeacherDto.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\DTO\\Teacher\\TeacherDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T16:24:20.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "UpdateTeacherRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\UpdateTeacherRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Teachers\\UpdateTeacherRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Teachers\\UpdateTeacherRequest.cs",
+              "RelativeToolTip": "Contracts\\Teachers\\UpdateTeacherRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T13:22:40.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "CreateGroupRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Group\\CreateGroupRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Group\\CreateGroupRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\Group\\CreateGroupRequest.cs",
+              "RelativeToolTip": "Contracts\\Group\\CreateGroupRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:48:25.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "CreateUnionRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\ArtUnion\\CreateUnionRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\ArtUnion\\CreateUnionRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\ArtUnion\\CreateUnionRequest.cs",
+              "RelativeToolTip": "Contracts\\ArtUnion\\CreateUnionRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T11:50:02.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "CreateDirectionRequest.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\ArtDirection\\CreateDirectionRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\ArtDirection\\CreateDirectionRequest.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Presentation\\Contracts\\ArtDirection\\CreateDirectionRequest.cs",
+              "RelativeToolTip": "Contracts\\ArtDirection\\CreateDirectionRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T13:08:01.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "OperationResultService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\Helpers\\Implementation\\OperationResultService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\Helpers\\Implementation\\OperationResultService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\Helpers\\Implementation\\OperationResultService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\Helpers\\Implementation\\OperationResultService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T15:21:50.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "IOperationResultService.cs",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\Helpers\\Definition\\IOperationResultService.cs",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Services\\Helpers\\Definition\\IOperationResultService.cs",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Services\\Helpers\\Definition\\IOperationResultService.cs",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Services\\Helpers\\Definition\\IOperationResultService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T15:21:31.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Application.csproj",
+              "DocumentMoniker": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Application.csproj",
+              "RelativeDocumentMoniker": "..\\EducationProcessAPI.Application\\Application.csproj",
+              "ToolTip": "K:\\GitHub\\EducationProcessAPI\\EducationProcessAPI.Application\\Application.csproj",
+              "RelativeToolTip": "..\\EducationProcessAPI.Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-20T10:07:28.878Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
