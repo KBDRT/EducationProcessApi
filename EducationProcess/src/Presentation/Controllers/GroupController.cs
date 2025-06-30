@@ -1,11 +1,6 @@
 ﻿using Application.DTO;
-using CSharpFunctionalExtensions;
 using EducationProcess.Presentation.Contracts.Group;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
-using EducationProcessAPI.Application.Services.CRUD.Implementation;
-using EducationProcessAPI.Application.ServiceUtils;
-using EducationProcessAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\src\\Presentation\\Presentation.csproj": {}
+    "C:\\GithubRepositories\\EducationProcess\\src\\Presentation\\Presentation.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\src\\Application\\Application.csproj": {
+    "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\src\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\GitHub\\src\\Application\\Application.csproj",
+        "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\src\\Application\\obj\\",
+        "outputPath": "C:\\GithubRepositories\\EducationProcess\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\GitHub\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Domain\\Domain.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -65,6 +65,10 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.5.0, )"
             },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
@@ -113,14 +117,14 @@
         }
       }
     },
-    "C:\\GitHub\\src\\Domain\\Domain.csproj": {
+    "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\GitHub\\src\\Domain\\Domain.csproj",
+        "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\src\\Domain\\obj\\",
+        "outputPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -198,14 +202,14 @@
         }
       }
     },
-    "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\src\\Infrastructure\\obj\\",
+        "outputPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -226,11 +230,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\GitHub\\src\\Application\\Application.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Application\\Application.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj"
               },
-              "C:\\GitHub\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Domain\\Domain.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -290,14 +294,14 @@
         }
       }
     },
-    "C:\\GitHub\\src\\Presentation\\Presentation.csproj": {
+    "C:\\GithubRepositories\\EducationProcess\\src\\Presentation\\Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\src\\Presentation\\Presentation.csproj",
+        "projectUniqueName": "C:\\GithubRepositories\\EducationProcess\\src\\Presentation\\Presentation.csproj",
         "projectName": "Presentation",
-        "projectPath": "C:\\GitHub\\src\\Presentation\\Presentation.csproj",
+        "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Presentation\\Presentation.csproj",
         "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\src\\Presentation\\obj\\",
+        "outputPath": "C:\\GithubRepositories\\EducationProcess\\src\\Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -318,14 +322,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\GitHub\\src\\Application\\Application.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Application\\Application.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Application\\Application.csproj"
               },
-              "C:\\GitHub\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Domain\\Domain.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj"
               },
-              "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj"
+              "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }

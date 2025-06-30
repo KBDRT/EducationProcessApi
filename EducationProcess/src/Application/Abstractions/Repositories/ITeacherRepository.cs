@@ -1,5 +1,6 @@
-﻿using EducationProcessAPI.Domain.Entities;
+﻿using Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter;
 using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Domain.Entities;
 
 
 namespace EducationProcessAPI.Application.Abstractions.Repositories
@@ -12,7 +13,7 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<Teacher?> GetByIdAsync(Guid id);
 
-        public Task<List<Teacher>> GetAfterWithSizeAsync(GetAfterIdWithPaginationDto request);
+        public Task<List<Teacher>> GetAfterWithSizeAsync(GetTeachersAfterIdQuery request);
 
         public Task<Teacher?> UpdateAsync(Teacher teacher);
 

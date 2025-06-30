@@ -501,17 +501,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BaseTeacherRequest"
+                "$ref": "#/components/schemas/DeleteAllTeachersCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BaseTeacherRequest"
+                "$ref": "#/components/schemas/DeleteAllTeachersCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BaseTeacherRequest"
+                "$ref": "#/components/schemas/DeleteAllTeachersCommand"
               }
             }
           }
@@ -615,17 +615,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTeacherRequest"
+                "$ref": "#/components/schemas/UpdateTeacherCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTeacherRequest"
+                "$ref": "#/components/schemas/UpdateTeacherCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTeacherRequest"
+                "$ref": "#/components/schemas/UpdateTeacherCommand"
               }
             }
           }
@@ -848,28 +848,6 @@
         },
         "additionalProperties": false
       },
-      "BaseTeacherRequest": {
-        "type": "object",
-        "properties": {
-          "surname": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "patronymic": {
-            "type": "string",
-            "nullable": true
-          },
-          "birthDate": {
-            "type": "string",
-            "format": "date"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateAnalysisCriteriaRequest": {
         "type": "object",
         "properties": {
@@ -1037,6 +1015,10 @@
             "nullable": true
           }
         },
+        "additionalProperties": false
+      },
+      "DeleteAllTeachersCommand": {
+        "type": "object",
         "additionalProperties": false
       },
       "GetCriteriasWithOptionsDto": {
@@ -1232,15 +1214,28 @@
         },
         "additionalProperties": false
       },
-      "UpdateTeacherRequest": {
+      "UpdateTeacherCommand": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid"
           },
-          "teacherData": {
-            "$ref": "#/components/schemas/BaseTeacherRequest"
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "patronymic": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
           }
         },
         "additionalProperties": false

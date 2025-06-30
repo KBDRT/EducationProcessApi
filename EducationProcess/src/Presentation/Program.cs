@@ -1,3 +1,4 @@
+using Application.CQRS.Teachers.Commands.CreateTeacher;
 using EducationProcess.Presentation;
 using Microsoft.EntityFrameworkCore;
 using Presentation.Middleware;
@@ -10,6 +11,9 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connection));
 
 builder.AddDependency();
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateTeacherCommand).Assembly));
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

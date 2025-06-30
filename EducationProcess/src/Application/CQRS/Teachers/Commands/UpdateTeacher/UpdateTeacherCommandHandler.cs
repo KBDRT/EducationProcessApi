@@ -1,0 +1,46 @@
+﻿using Application.CQRS.Helpers.CQResult;
+using Application.Validators.Base;
+using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Domain.Entities;
+using MediatR;
+
+namespace Application.CQRS.Teachers.Commands.UpdateTeacher
+{
+    public class UpdateTeacherCommandHandler : IRequestHandler<UpdateTeacherCommand, CQResult>
+    {
+        public readonly ITeacherRepository _teacherRepository;
+        public readonly IValidatorFactoryCustom _validatorFactory;
+
+        public UpdateTeacherCommandHandler(ITeacherRepository teacherRepository, 
+                                           IValidatorFactoryCustom validatorFactory)
+        {
+            _teacherRepository = teacherRepository;
+            _validatorFactory = validatorFactory;
+        }
+
+        public async Task<CQResult> Handle(UpdateTeacherCommand request, CancellationToken cancellationToken)
+        {
+            var validation = _validatorFactory.GetValidator<UpdateTeacherCommand>().Validate(request);
+            var serviceResult = new CQResult(validation);
+
+            if (validation.IsValid)
+            {
+                Teacher? teacherForUpdate = await _teacherRepository.GetByIdAsync(request.Id);
+                if (teacherForUpdate == null)
+                {
+                    serviceResult.AddMessage("Teacher не найден", "TeacherId");
+                }
+                else
+                {
+                    teacherForUpdate.Surname = request.Surname;
+                    teacherForUpdate.BirthDate = request.BirthDate;
+                    teacherForUpdate.Patronymic = request.Patronymic;
+                    teacherForUpdate.Name = request.Name;
+
+                    var updatedTeacher = await _teacherRepository.UpdateAsync(teacherForUpdate);
+                }
+            }
+            return serviceResult;
+        }
+    }
+}

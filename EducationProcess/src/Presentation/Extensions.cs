@@ -1,9 +1,11 @@
-﻿using Application.DTO;
+﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
+using Application.CQRS.Teachers.Commands.UpdateTeacher;
+using Application.DTO;
+using Application.Validators;
 using Application.Validators.Base;
 using Application.Validators.CRUD;
 using Application.Validators.CRUD.Create;
 using Application.Validators.CRUD.General;
-using Application.Validators.CRUD.Update;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.Abstractions.Repositories;
@@ -34,7 +36,6 @@ namespace EducationProcess.Presentation
         private static void AddServices(WebApplicationBuilder builder)
         {
             builder.Services.AddTransient<IUnionService, UnionService>();
-            builder.Services.AddTransient<ITeacherService, TeacherService>();
             builder.Services.AddTransient<IDirectionService, DirectionService>();
             builder.Services.AddTransient<IGroupService, GroupService>();
             builder.Services.AddTransient<ILessonService, LessonService>();
@@ -54,9 +55,9 @@ namespace EducationProcess.Presentation
             builder.Services.AddScoped<IValidator<CreateGroupDto>, CreateGroupValidator>();
             builder.Services.AddScoped<IValidator<LessonDto>, CreateLessonValidator>();
             builder.Services.AddScoped<IValidator<CreateOptionDto>, CreateOptionValidator>();
-            builder.Services.AddScoped<IValidator<CreateTeacherDto>, CreateTeacherValidator>();
+            builder.Services.AddScoped<IValidator<CreateTeacherCommand>, CreateTeacherValidator>();
             builder.Services.AddScoped<IValidator<CreateUnionDto>, CreateUnionValidator>();
-            builder.Services.AddScoped<IValidator<TeacherDto>, UpdateTeacherValidator>();
+            builder.Services.AddScoped<IValidator<UpdateTeacherCommand>, UpdateTeacherValidator>();
         }
 
 

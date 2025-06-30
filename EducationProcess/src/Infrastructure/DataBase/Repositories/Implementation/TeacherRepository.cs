@@ -1,7 +1,8 @@
-﻿using EducationProcessAPI.Domain.Entities;
-using EducationProcessAPI.Application.DTO;
-using Microsoft.EntityFrameworkCore;
+﻿using Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter;
 using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementation
 {
@@ -40,12 +41,12 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
         }
 
 
-        public async Task<List<Teacher>> GetAfterWithSizeAsync(GetAfterIdWithPaginationDto request)
+        public async Task<List<Teacher>> GetAfterWithSizeAsync(GetTeachersAfterIdQuery request)
         {
             List<Teacher> teachers = await _context.Teachers
-                                        .Where(x => x.Id > request.afterId)
+                                        .Where(x => x.Id > request.AfterTeacherId)
                                         //.OrderBy(x => x.Id)
-                                        .Take(request.size)
+                                        .Take(request.ListSize)
                                         .AsNoTracking().ToListAsync();
 
             return teachers;

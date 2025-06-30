@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "7MKvbur7JLg=",
+  "dgSpecHash": "IiUmHF05SnI=",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artemiy\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\documentformat.openxml\\3.3.0\\documentformat.openxml.3.3.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\documentformat.openxml.framework\\3.3.0\\documentformat.openxml.framework.3.3.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Artemiy\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\Artemiy\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\microsoft.aspnet.mvc\\5.3.0\\microsoft.aspnet.mvc.5.3.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\microsoft.aspnet.razor\\3.3.0\\microsoft.aspnet.razor.3.3.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
@@ -75,9 +77,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.Mvc 5.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         "net8.0"
@@ -87,9 +89,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.Razor 3.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         "net8.0"
@@ -99,9 +101,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebApi.Core 5.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net8.0"
@@ -111,9 +113,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebPages 3.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         "net8.0"
@@ -123,9 +125,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.Web.Infrastructure 1.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GitHub\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net8.0"

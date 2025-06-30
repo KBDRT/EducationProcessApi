@@ -1,16 +1,20 @@
-﻿using CSharpFunctionalExtensions;
+﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
+using Application.CQRS.Teachers.Commands.DeleteAllTeachers;
+using Application.CQRS.Teachers.Commands.UpdateTeacher;
+using Application.CQRS.Teachers.Commands.UpdateTeacherBirthDate;
+using Application.CQRS.Teachers.Queries.GetTeacherById;
+using Application.CQRS.Teachers.Queries.GetTeachersByEducationYear;
+using Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter;
+using Application.DTO;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using EducationProcess.Presentation.Contracts.Teachers;
 using EducationProcessAPI.Application.DTO;
-using EducationProcessAPI.Application.Services;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
-using EducationProcessAPI.Application.Services.CRUD.Implementation;
-using EducationProcessAPI.Application.ServiceUtils;
 using EducationProcessAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
-using System.Web.Http.Results;
 
 namespace EducationProcess.Presentation.Controllers
 {
@@ -19,20 +23,17 @@ namespace EducationProcess.Presentation.Controllers
     [Route("[controller]")]
     public class TeachersController : BaseController
     {
-        private readonly ITeacherService _teacherService;
+        private readonly IMediator _mediator;
 
-        public TeachersController(ITeacherService teacherService)
+        public TeachersController(IMediator mediator)
         {
-            _teacherService = teacherService;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> CreateAsync([FromBody] BaseTeacherRequest request)
+        public async Task<ActionResult<Guid>> CreateAsync([FromBody] DeleteAllTeachersCommand command)
         {
-            var result = await _teacherService.CreateAsync(new CreateTeacherDto(request.Surname, 
-                                                                                request.Name, 
-                                                                                request.Patronymic,
-                                                                                request.BirthDate));
+            var result = await _mediator.Send(command);
 
             return FormResultFromService(result);
         }
@@ -40,7 +41,7 @@ namespace EducationProcess.Presentation.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<Teacher>> GetByIdAsync(Guid id)
         {
-            var result = await _teacherService.GetByIdAsync(id);
+            var result = await _mediator.Send(new GetTeacherByIdQuery(id));
 
             return FormResultFromService(result);
         }
@@ -49,7 +50,7 @@ namespace EducationProcess.Presentation.Controllers
         [HttpDelete]
         public async Task<IActionResult> RemoveAllAsync()
         {
-            var result = await _teacherService.DeleteAllAsync();
+            var result = await _mediator.Send(new DeleteAllTeachersCommand());
 
             return FormResultFromService(result);
         }
@@ -60,24 +61,15 @@ namespace EducationProcess.Presentation.Controllers
             if (size < 1)
                 return BadRequest();
 
-            var result = await _teacherService.GetAfterWithSizeAsync(afterId, size);
+            var result = await _mediator.Send(new GetTeachersAfterIdQuery(afterId, size));
 
             return FormResultFromService(result);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateFullAsync([FromBody] Contracts.Teachers.UpdateTeacherRequest teacher)
+        public async Task<IActionResult> UpdateFullAsync([FromBody] UpdateTeacherCommand request)
         {
-            var updatedTeacher = new TeacherDto
-            (
-                teacher.Id,
-                teacher.TeacherData.Surname,
-                teacher.TeacherData.Name,
-                teacher.TeacherData.Patronymic,
-                teacher.TeacherData.BirthDate
-            );
-
-            var result = await _teacherService.UpdateAsync(updatedTeacher);
+            var result = await _mediator.Send(request);
 
             return FormResultFromService(result);
         }
@@ -86,7 +78,7 @@ namespace EducationProcess.Presentation.Controllers
 
         public async Task<IActionResult> UpdateBirthDateAsync([FromBody] UpdateTeacherBirthRequest request)
         {
-            var result = await _teacherService.UpdateBirthDateAsync(request.Id, request.BirthDate);
+            var result = await _mediator.Send(new UpdateTeacherBirthDateCommand(request.Id, request.BirthDate));
 
             return FormResultFromService(result);
         }
@@ -95,7 +87,7 @@ namespace EducationProcess.Presentation.Controllers
         [HttpGet("{year:int}")]
         public async Task<IActionResult> GetByEduYear(int year)
         {
-            var result = await _teacherService.GetByEduYearAsync(year);
+            var result = await _mediator.Send(new GetTeachersByEducationYearQuery(year));
 
             return FormResultFromService(result);
         }

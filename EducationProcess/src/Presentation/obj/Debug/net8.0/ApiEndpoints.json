@@ -290,8 +290,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "EducationProcess.Presentation.Contracts.Teachers.BaseTeacherRequest",
+        "Name": "command",
+        "Type": "Application.CQRS.Teachers.Commands.DeleteAllTeachers.DeleteAllTeachersCommand",
         "IsRequired": true
       }
     ],
@@ -357,8 +357,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "teacher",
-        "Type": "EducationProcess.Presentation.Contracts.Teachers.UpdateTeacherRequest",
+        "Name": "request",
+        "Type": "Application.CQRS.Teachers.Commands.UpdateTeacher.UpdateTeacherCommand",
         "IsRequired": true
       }
     ],
