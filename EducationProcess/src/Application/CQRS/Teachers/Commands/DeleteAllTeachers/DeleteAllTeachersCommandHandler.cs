@@ -1,15 +1,12 @@
-﻿using Application.CQRS.Helpers.CQResult;
-using Application.Validators.Base;
+﻿using Application.CQRS.Result.CQResult;
 using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Domain.Entities;
-using FluentValidation;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Commands.DeleteAllTeachers
 {
     public class DeleteAllTeachersCommandHandler : IRequestHandler<DeleteAllTeachersCommand, CQResult<int>>
     {
-        public readonly ITeacherRepository _teacherRepository;
+        private readonly ITeacherRepository _teacherRepository;
 
         public DeleteAllTeachersCommandHandler(ITeacherRepository teacherRepository)
         {

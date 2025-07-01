@@ -1,11 +1,7 @@
-﻿using Application.CQRS.Helpers.CQResult;
-using Application.DTO;
+﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
-using Application.Validators.CRUD.General;
-using DocumentFormat.OpenXml.Bibliography;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
-using EducationProcessAPI.Domain.Entities;
 using FluentValidation;
 using MediatR;
 
@@ -13,8 +9,7 @@ namespace Application.CQRS.Teachers.Queries.GetTeachersByEducationYear
 {
     public class GetTeachersByEducationYearQueryHandler : IRequestHandler<GetTeachersByEducationYearQuery, CQResult<List<TeachersForEduYearDto>>>
     {
-        public readonly ITeacherRepository _teacherRepository;
-
+        private readonly ITeacherRepository _teacherRepository;
         public GetTeachersByEducationYearQueryHandler(ITeacherRepository teacherRepository,
                                     IValidatorFactoryCustom validatorFactory)
         {

@@ -1,12 +1,12 @@
-﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
+﻿using Application.CQRS.Analysis.Commands.CreateCriteria;
+using Application.CQRS.Analysis.Commands.CreateOption;
+using Application.CQRS.Teachers.Commands.CreateTeacher;
 using Application.CQRS.Teachers.Commands.UpdateTeacher;
 using Application.DTO;
-using Application.Validators;
 using Application.Validators.Base;
 using Application.Validators.CRUD;
 using Application.Validators.CRUD.Create;
 using Application.Validators.CRUD.General;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
@@ -31,15 +31,12 @@ namespace EducationProcess.Presentation
             AddParsers(builder);
         }
 
-
-
         private static void AddServices(WebApplicationBuilder builder)
         {
             builder.Services.AddTransient<IUnionService, UnionService>();
             builder.Services.AddTransient<IDirectionService, DirectionService>();
             builder.Services.AddTransient<IGroupService, GroupService>();
             builder.Services.AddTransient<ILessonService, LessonService>();
-            builder.Services.AddTransient<IAnalysisService, AnalysisService>();
         }
 
         private static void AddValidators(WebApplicationBuilder builder)
@@ -49,17 +46,16 @@ namespace EducationProcess.Presentation
             builder.Services.AddScoped<IValidator<IFormFile>, UploadFileValidator>();
             builder.Services.AddScoped<IValidator<Guid>, GuidEmptyValidator>();
 
-            builder.Services.AddScoped<IValidator<CreateAnalysisCriteriaDto>, CreateCriteriaValidator>();
+            builder.Services.AddScoped<IValidator<CreateCriteriaCommand>, CreateCriteriaValidator>();
             builder.Services.AddScoped<IValidator<CreateDirectionDto>, CreateDirectionValidator>();
             builder.Services.AddScoped<IValidator<CreateGroupFromFileDto>, CreateGroupFromFileValidator>();
             builder.Services.AddScoped<IValidator<CreateGroupDto>, CreateGroupValidator>();
             builder.Services.AddScoped<IValidator<LessonDto>, CreateLessonValidator>();
-            builder.Services.AddScoped<IValidator<CreateOptionDto>, CreateOptionValidator>();
+            builder.Services.AddScoped<IValidator<CreateOptionCommand>, CreateOptionValidator>();
             builder.Services.AddScoped<IValidator<CreateTeacherCommand>, CreateTeacherValidator>();
             builder.Services.AddScoped<IValidator<CreateUnionDto>, CreateUnionValidator>();
             builder.Services.AddScoped<IValidator<UpdateTeacherCommand>, UpdateTeacherValidator>();
         }
-
 
         private static void AddRepositories(WebApplicationBuilder builder)
         {

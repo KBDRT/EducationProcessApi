@@ -1,4 +1,4 @@
-﻿using Application.CQRS.Helpers.CQResult;
+﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
@@ -10,7 +10,7 @@ namespace Application.CQRS.Teachers.Commands.CreateTeacher
 {
     public class DeleteAllTeachersCommandHandler : IRequestHandler<CreateTeacherCommand, CQResult<Guid>>
     {
-        public readonly ITeacherRepository _teacherRepository;
+        private readonly ITeacherRepository _teacherRepository;
         private readonly IValidatorFactoryCustom _validatorFactory;
 
         public DeleteAllTeachersCommandHandler(ITeacherRepository teacherRepository,

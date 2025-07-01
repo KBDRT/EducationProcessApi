@@ -1,7 +1,6 @@
 ﻿using Application;
-using Application.CQRS.Helpers.CQResult;
+using Application.CQRS.Result.CQResult;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Presentation
 {
@@ -10,7 +9,7 @@ namespace Presentation
         [NonAction]
         public JsonResult FormResultFromService(object? resultData, List<ServiceResult> message, ServiceResultCode resultCode)
         {
-            int resultCodeRequest = resultCode.GetStatusCodeForController();    
+            int resultCodeRequest = GetStatusCodeForController(resultCode);    
 
             return new JsonResult(resultCodeRequest == 200 ? resultData : message)
             {
@@ -59,6 +58,15 @@ namespace Presentation
             return new JsonResult(resultCodeRequest == 200 ? result.ResultData : result.Messages)
             {
                 StatusCode = resultCodeRequest
+            };
+        }
+
+        private int GetStatusCodeForController(ServiceResultCode resultCode)
+        {
+            return resultCode switch
+            {
+                ServiceResultCode.Success => StatusCodes.Status200OK,
+                _ => StatusCodes.Status400BadRequest,
             };
         }
 

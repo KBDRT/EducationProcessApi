@@ -180,17 +180,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+                "$ref": "#/components/schemas/CreateDocumentCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+                "$ref": "#/components/schemas/CreateDocumentCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnalysisDocumentDto"
+                "$ref": "#/components/schemas/CreateDocumentCommand"
               }
             }
           }
@@ -873,7 +873,25 @@
         },
         "additionalProperties": false
       },
-      "CreateAnalysisDocumentDto": {
+      "CreateDirectionRequest": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateDocumentCommand": {
         "type": "object",
         "properties": {
           "lessonId": {
@@ -901,24 +919,6 @@
               "type": "string",
               "format": "uuid"
             },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateDirectionRequest": {
-        "type": "object",
-        "properties": {
-          "shortName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
             "nullable": true
           }
         },

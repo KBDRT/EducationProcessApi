@@ -17,14 +17,7 @@ namespace Application
             }
         }
 
-        public static int GetStatusCodeForController(this ServiceResultCode resultCode)
-        {
-            return resultCode switch
-            {
-                ServiceResultCode.Success => StatusCodes.Status200OK,
-                _ => StatusCodes.Status400BadRequest,
-            };
-        }
+
 
 
     }

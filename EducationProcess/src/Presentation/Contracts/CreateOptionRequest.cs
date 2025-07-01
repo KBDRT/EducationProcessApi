@@ -1,6 +1,4 @@
-﻿using EducationProcessAPI.Domain.Entities.LessonAnalyze;
-
-namespace EducationProcess.Presentation.Contracts
+﻿namespace EducationProcess.Presentation.Contracts
 {
     public record CreateOptionRequest
     (

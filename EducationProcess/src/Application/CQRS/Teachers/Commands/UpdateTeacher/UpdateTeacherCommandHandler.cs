@@ -1,4 +1,4 @@
-﻿using Application.CQRS.Helpers.CQResult;
+﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Domain.Entities;
@@ -8,8 +8,8 @@ namespace Application.CQRS.Teachers.Commands.UpdateTeacher
 {
     public class UpdateTeacherCommandHandler : IRequestHandler<UpdateTeacherCommand, CQResult>
     {
-        public readonly ITeacherRepository _teacherRepository;
-        public readonly IValidatorFactoryCustom _validatorFactory;
+        private readonly ITeacherRepository _teacherRepository;
+        private readonly IValidatorFactoryCustom _validatorFactory;
 
         public UpdateTeacherCommandHandler(ITeacherRepository teacherRepository, 
                                            IValidatorFactoryCustom validatorFactory)

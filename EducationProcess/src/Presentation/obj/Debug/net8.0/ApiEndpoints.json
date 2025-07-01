@@ -77,7 +77,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Application.DTO.CreateAnalysisDocumentDto",
+        "Type": "Application.CQRS.Analysis.Commands.CreateDocument.CreateDocumentCommand",
         "IsRequired": true
       }
     ],

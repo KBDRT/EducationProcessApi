@@ -1,11 +1,18 @@
-﻿using Application.DTO;
+﻿using Application.CQRS.Analysis.Commands.CreateCriteria;
+using Application.CQRS.Analysis.Commands.CreateCriteriasFromFile;
+using Application.CQRS.Analysis.Commands.CreateDocument;
+using Application.CQRS.Analysis.Commands.CreateOption;
+using Application.CQRS.Analysis.Commands.DeleteCriteriasByTarget;
+using Application.CQRS.Analysis.Querires.GetCriteriasByTarget;
+using Application.DTO;
 using CSharpFunctionalExtensions;
 using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.DTO;
-using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
-using Presentation;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Presentation;
+using System.Threading;
 
 namespace EducationProcess.Presentation.Controllers
 {
@@ -13,17 +20,18 @@ namespace EducationProcess.Presentation.Controllers
     [Route("[controller]")]
     public class AnalysisController : BaseController
     {
-        private readonly IAnalysisService _analysisService;
 
-        public AnalysisController(IAnalysisService analysisService)
+        private readonly IMediator _mediator;
+        public AnalysisController(IMediator mediator)
         {
-            _analysisService = analysisService;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> CreateCriteriaAsync([FromBody] CreateAnalysisCriteriaRequest request)
+        public async Task<ActionResult<Guid>> CreateCriteriaAsync([FromBody] CreateAnalysisCriteriaRequest request,
+                                                                   CancellationToken cancellationToken)
         {
-            CreateAnalysisCriteriaDto criteriaDto = new CreateAnalysisCriteriaDto
+            CreateCriteriaCommand criteriaCommand = new CreateCriteriaCommand
             (
                 request.AnalysisTarget,
                 request.Name,
@@ -32,40 +40,43 @@ namespace EducationProcess.Presentation.Controllers
                 request.Order
             );
 
-            var result = await _analysisService.CreateCriteriaAsync(criteriaDto);
-
-            return FormResultFromService(result.ResultData, result.Messages, result.ResultCode);
+            var result = await _mediator.Send(criteriaCommand, cancellationToken);
+            return FormResultFromService(result);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteByTargetAsync(AnalysisTarget target)
+        public async Task<IActionResult> DeleteByTargetAsync(AnalysisTarget target,
+                                                             CancellationToken cancellationToken)
         {
-            await _analysisService.DeleteByTargetAsync(target);
+            var result = await _mediator.Send(new DeleteCriteriasByTargetCommand(target), cancellationToken);
 
-            return Ok();
+            return FormResultFromService(result);
         }
 
 
         [HttpPost("options")]
-        public async Task<ActionResult<Guid>> CreateOptionAsync([FromBody] CreateOptionRequest request)
+        public async Task<ActionResult<Guid>> CreateOptionAsync([FromBody] CreateOptionRequest request,
+                                                                 CancellationToken cancellationToken)
         {
-            var result = await _analysisService.CreateOptionAsync(new CreateOptionDto(request.criteriaId, request.name));
+            var result = await _mediator.Send(new CreateOptionCommand(request.criteriaId, request.name), cancellationToken);
 
-            return FormResultFromService(result.ResultData, result.Messages, result.ResultCode);
+            return FormResultFromService(result);
         }
 
 
         [HttpPost("document")]
-        public async Task<ActionResult<Guid>> CreateDocumentAsync([FromBody] CreateAnalysisDocumentDto request)
+        public async Task<ActionResult<Guid>> CreateDocumentAsync([FromBody] CreateDocumentCommand request,
+                                                                   CancellationToken cancellationToken)
         {
-            var result = await _analysisService.CreateAnalysisDocumentAsync(request);
+            var result = await _mediator.Send(request, cancellationToken);
 
-            return FormResultFromService(result.ResultData, result.Messages, result.ResultCode); ;
+            return FormResultFromService(result);
         }
 
 
         [HttpPost("upload")]
-        public async Task<IActionResult> CreateFromFileAsync([FromForm] CreateAnalysisFromFileRequest request)
+        public async Task<IActionResult> CreateFromFileAsync([FromForm] CreateCriteriasFromFileCommand request, 
+                                                             CancellationToken cancellationToken)
         {
             var file = request.File;
 
@@ -74,18 +85,18 @@ namespace EducationProcess.Presentation.Controllers
                 return BadRequest();
             }
 
-            var result = await _analysisService.CreateFromFileAsync(request);
+            var result = await _mediator.Send(request, cancellationToken);
 
-            return FormResultFromService(null, result.Messages, result.ResultCode);
+            return FormResultFromService(result);
         }
 
-
         [HttpGet]
-        public async Task<ActionResult<List<GetCriteriasWithOptionsDto>>> GetCriteriasByTargetAsync(AnalysisTarget target)
+        public async Task<ActionResult<List<GetCriteriasWithOptionsDto>>> GetCriteriasByTargetAsync(AnalysisTarget target, 
+                                                                                                    CancellationToken cancellationToken)
         {
-            var result =  await _analysisService.GetByTargetAsync(target);
+            var result = await _mediator.Send(new GetCriteriasByTargetQuery(target), cancellationToken);
 
-            return FormResultFromService(result.ResultData, result.Messages, result.ResultCode);
+            return FormResultFromService(result);
         }
 
     }

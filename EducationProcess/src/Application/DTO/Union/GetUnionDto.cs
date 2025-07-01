@@ -1,9 +1,4 @@
 ﻿using EducationProcessAPI.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EducationProcessAPI.Application.DTO
 {
@@ -18,7 +13,6 @@ namespace EducationProcessAPI.Application.DTO
         public double EduDuration { get; set; }
 
         public string Description { get; set; } = string.Empty;
-
 
         public List<GetGroupsDto> Groups { get; set; } = new List<GetGroupsDto>();
 

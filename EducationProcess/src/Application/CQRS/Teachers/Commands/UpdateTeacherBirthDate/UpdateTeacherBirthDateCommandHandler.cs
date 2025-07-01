@@ -1,16 +1,15 @@
-﻿using Application.CQRS.Helpers.CQResult;
-using Application.Validators.Base;
+﻿using Application.Validators.Base;
 using Application.Validators.CRUD.General;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Domain.Entities;
-using FluentValidation;
+using Application.CQRS.Result.CQResult;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Commands.UpdateTeacherBirthDate
 {
     public class UpdateTeacherBirthDateCommandHandler : IRequestHandler<UpdateTeacherBirthDateCommand, CQResult>
     {
-        public readonly ITeacherRepository _teacherRepository;
+        private readonly ITeacherRepository _teacherRepository;
 
         public UpdateTeacherBirthDateCommandHandler(ITeacherRepository teacherRepository, 
                                            IValidatorFactoryCustom validatorFactory)

@@ -1,4 +1,4 @@
-﻿using Application.CQRS.Helpers.CQResult;
+﻿using Application.CQRS.Result.CQResult;
 using Application.DTO;
 using EducationProcessAPI.Application.DTO;
 using MediatR;

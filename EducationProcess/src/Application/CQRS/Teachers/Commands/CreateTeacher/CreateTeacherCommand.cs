@@ -1,4 +1,4 @@
-﻿using Application.CQRS.Helpers.CQResult;
+﻿using Application.CQRS.Result.CQResult;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Commands.CreateTeacher

@@ -1,21 +1,18 @@
-﻿using Application.CQRS.Helpers.CQResult;
+﻿using Application.CQRS.Result.CQResult;
 using Application.DTO;
 using Application.Validators.Base;
-using Application.Validators.CRUD.General;
 using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Domain.Entities;
-using FluentValidation;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter
 {
     public class GetTeachersAfterIdQueryHandler : IRequestHandler<GetTeachersAfterIdQuery, CQResult<List<TeacherDto>>>
     {
-        public readonly ITeacherRepository _teacherRepository;
+        private readonly ITeacherRepository _teacherRepository;
 
         public GetTeachersAfterIdQueryHandler(ITeacherRepository teacherRepository,
-                                    IValidatorFactoryCustom validatorFactory)
+                                                IValidatorFactoryCustom validatorFactory)
         {
             _teacherRepository = teacherRepository;
         }

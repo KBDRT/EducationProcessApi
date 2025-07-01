@@ -1,5 +1,4 @@
 ﻿using Application.DTO;
-using EducationProcess.Presentation.Contracts;
 using FluentValidation;
 
 namespace Application.Validators.CRUD.Create

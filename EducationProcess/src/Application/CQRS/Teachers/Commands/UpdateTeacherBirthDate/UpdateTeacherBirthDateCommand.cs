@@ -1,5 +1,5 @@
-﻿using Application.CQRS.Helpers.CQResult;
-using MediatR;
+﻿using MediatR;
+using Application.CQRS.Result.CQResult;
 
 namespace Application.CQRS.Teachers.Commands.UpdateTeacherBirthDate
 {
