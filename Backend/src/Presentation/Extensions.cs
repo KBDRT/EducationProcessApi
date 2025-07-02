@@ -89,6 +89,7 @@ namespace EducationProcess.Presentation
                 .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Cors", LogEventLevel.Warning)
                 .CreateLogger();
 
             builder.Services.AddSerilog();

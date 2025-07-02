@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8RAHd7oG5lo=",
+  "dgSpecHash": "ATmGt0wDJA4=",
   "success": true,
-  "projectFilePath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artemiy\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",

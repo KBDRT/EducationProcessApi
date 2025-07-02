@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TK4XeJIYFgc=",
+  "dgSpecHash": "vOMODSbtr+s=",
   "success": true,
-  "projectFilePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artemiy\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\Artemiy\\.nuget\\packages\\documentformat.openxml\\3.3.0\\documentformat.openxml.3.3.0.nupkg.sha512",
@@ -112,9 +112,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.Mvc 5.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         "net8.0"
@@ -124,9 +124,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.Razor 3.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         "net8.0"
@@ -136,9 +136,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebApi.Core 5.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net8.0"
@@ -148,9 +148,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebPages 3.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         "net8.0"
@@ -160,9 +160,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.Web.Infrastructure 1.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\GithubRepositories\\EducationProcess\\src\\Infrastructure\\Infrastructure.csproj",
+      "filePath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net8.0"

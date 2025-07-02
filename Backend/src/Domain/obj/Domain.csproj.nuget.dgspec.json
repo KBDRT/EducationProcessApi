@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {}
+    "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj": {
+    "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\Domain.csproj",
+        "projectPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artemiy\\.nuget\\packages\\",
-        "outputPath": "C:\\GithubRepositories\\EducationProcess\\src\\Domain\\obj\\",
+        "outputPath": "C:\\GithubRepositories\\EducationProcessApi\\Backend\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
