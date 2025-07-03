@@ -11,6 +11,8 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<int> DeleteAllAsync();
 
+        public Task DeleteByIdAsync(Guid id);
+
         public Task<Teacher?> GetByIdAsync(Guid id);
 
         public Task<List<Teacher>> GetAfterWithSizeAsync(GetTeachersAfterIdQuery request);

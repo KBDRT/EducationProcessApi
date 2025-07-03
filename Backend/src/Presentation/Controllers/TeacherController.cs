@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
 using Application.CQRS.Teachers.Commands.DeleteAllTeachers;
+using Application.CQRS.Teachers.Commands.DeleteTeacherById;
 using Application.CQRS.Teachers.Commands.UpdateTeacher;
 using Application.CQRS.Teachers.Commands.UpdateTeacherBirthDate;
 using Application.CQRS.Teachers.Queries.GetTeacherById;
@@ -56,6 +57,17 @@ namespace EducationProcess.Presentation.Controllers
 
             return FormResultFromService(result);
         }
+
+
+
+        [HttpDelete("single")]
+        public async Task<IActionResult> RemoveById([FromBody] DeleteTeacherByIdCommand request)
+        {
+            var result = await _mediator.Send(request);
+
+            return FormResultFromService(result);
+        }
+
 
         [HttpGet]
         public async Task<ActionResult<List<Teacher>>> GetByAfterIdWithPaginationAsync([FromQuery] Guid afterId, [FromQuery] int size = 10)

@@ -45,7 +45,9 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
         {
             List<Teacher> teachers = await _context.Teachers
                                         .Where(x => x.Id > request.AfterTeacherId)
-                                        //.OrderBy(x => x.Id)
+                                        .OrderBy(x => x.Surname)
+                                        .ThenBy(x => x.Name)
+                                        .ThenBy(x => x.Patronymic)
                                         .Take(request.ListSize)
                                         .AsNoTracking().ToListAsync();
 
@@ -70,5 +72,9 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
             return teachers;
         }
 
+        public async Task DeleteByIdAsync(Guid id)
+        {
+            await _context.Teachers.Where(x => x.Id == id).ExecuteDeleteAsync();
+        }
     }
 }

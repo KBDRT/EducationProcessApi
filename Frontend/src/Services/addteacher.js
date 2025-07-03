@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const changeTeacher = async (data) => 
+export const addNewTeacher = async (data) => 
 {
     if (data == null)
     {
@@ -10,9 +10,8 @@ export const changeTeacher = async (data) =>
     let teacher = data.teacher;
 
     try {
-        const response = await axios.put("https://localhost:7032/Teachers/", 
+        const response = await axios.post("https://localhost:7032/Teachers/", 
             {
-                id : teacher.id,
                 surname : teacher.surname,
                 name : teacher.name,
                 patronymic : teacher.patronymic,
