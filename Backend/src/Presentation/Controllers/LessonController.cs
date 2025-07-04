@@ -3,6 +3,7 @@ using EducationProcess.Presentation.Contracts.Lesson;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Presentation;
 
 namespace EducationProcess.Presentation.Controllers
@@ -15,10 +16,12 @@ namespace EducationProcess.Presentation.Controllers
     public class LessonController : BaseController
     {
         private readonly ILessonService _lessonService;
+        private readonly IMemoryCache _memoryCache;
 
-        public LessonController(ILessonService lessonService)
+        public LessonController(ILessonService lessonService, IMemoryCache memoryCache)
         {
             _lessonService = lessonService;
+            _memoryCache = memoryCache;
         }
 
 

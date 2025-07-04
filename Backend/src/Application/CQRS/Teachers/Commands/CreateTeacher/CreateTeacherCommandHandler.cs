@@ -1,9 +1,7 @@
 ﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
 using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Domain.Entities;
-using FluentValidation;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Commands.CreateTeacher
@@ -14,7 +12,7 @@ namespace Application.CQRS.Teachers.Commands.CreateTeacher
         private readonly IValidatorFactoryCustom _validatorFactory;
 
         public DeleteAllTeachersCommandHandler(ITeacherRepository teacherRepository,
-                                    IValidatorFactoryCustom validatorFactory)
+                                               IValidatorFactoryCustom validatorFactory)
         {
             _teacherRepository = teacherRepository;
             _validatorFactory = validatorFactory;
@@ -27,20 +25,25 @@ namespace Application.CQRS.Teachers.Commands.CreateTeacher
 
             if (validation.IsValid)
             {
-                var newTeacher = new Teacher()
-                {
-                    Id = Guid.NewGuid(),
-                    Surname = request.Surname,
-                    Name = request.Name,
-                    Patronymic = request.Patronymic,
-                    BirthDate = request.BirthDate
-                };
-
+                Teacher newTeacher = CreateNewTeacher(request);
                 var id = await _teacherRepository.CreateAsync(newTeacher);
                 serviceResult.SetResultData(id);
             }
 
             return serviceResult;
         }
+
+        private Teacher CreateNewTeacher(CreateTeacherCommand request)
+        {
+            return new Teacher()
+            {
+                Id = Guid.NewGuid(),
+                Surname = request.Surname,
+                Name = request.Name,
+                Patronymic = request.Patronymic,
+                BirthDate = request.BirthDate
+            };
+        }
+
     }
 }

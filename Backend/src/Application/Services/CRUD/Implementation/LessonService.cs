@@ -1,31 +1,32 @@
 ﻿using Application;
-using Application.Validators;
-using CSharpFunctionalExtensions;
+using Application.Cache.Definition;
+using Application.Cache.Implementation;
+using Application.Validators.Base;
+using Application.Validators.CRUD.General;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
-using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Domain.Entities;
-using Application.Validators.CRUD.Create;
-using Application.Validators.CRUD.General;
-using Application.Validators.Base;
-
 
 namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 {
     public class LessonService : ILessonService
     {
+        private const CacheManagerTypes _CACHE_TYPE = CacheManagerTypes.Memory;
+
         private readonly ILessonRepository _lessonRepository;
         private readonly IGroupRepository _groupRepository;
         private readonly IValidatorFactoryCustom _validatorFactory;
-
+        private readonly ICacheManager _cacheManager;
         public LessonService(ILessonRepository lessonRepository, 
                              IGroupRepository groupRepository,
-                             IValidatorFactoryCustom validatorFactory)
+                             IValidatorFactoryCustom validatorFactory,
+                             ICacheManagerFactory cacheFactory)
         {
             _lessonRepository = lessonRepository;
             _groupRepository = groupRepository;
             _validatorFactory = validatorFactory;
+            _cacheManager = cacheFactory.Create(_CACHE_TYPE);
         }
 
         public async Task<ServiceResultManager<Guid>> CreateAsync(LessonDto lesson)
@@ -36,30 +37,33 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             if (validation.IsValid)
             {
                 Group? group = await _groupRepository.GetByIdAsync(lesson.GroupId);
-
                 if (group == null)
                 {
                     serviceResult.AddMessage("Group не найден", "GroupId");
                     return serviceResult;
                 }
 
-                Lesson newLesson = new Lesson()
-                {
-                    Id = Guid.NewGuid(),
-                    Date = lesson.Date,
-                    FormControl = lesson.FormControl,
-                    FormExercise = lesson.FormExercise,
-                    Group = group,
-                    Name = lesson.Name,
-                    Place = lesson.Place,
-                    StudyHours = lesson.StudyHours,
-                };
-
+                Lesson newLesson = CreateNewLesson(lesson, group);
                 var id = await _lessonRepository.CreateAsync(newLesson);
                 serviceResult.SetResultData(id);
             }
 
             return serviceResult;
+        }
+
+        private Lesson CreateNewLesson(LessonDto lesson, Group group)
+        {
+            return new Lesson
+            {
+                Id = Guid.NewGuid(),
+                Date = lesson.Date,
+                FormControl = lesson.FormControl,
+                FormExercise = lesson.FormExercise,
+                Group = group,
+                Name = lesson.Name,
+                Place = lesson.Place,
+                StudyHours = lesson.StudyHours,
+            };
         }
 
         public async Task<ServiceResultManager<LessonShortDto?>> GetByIdAsync(Guid id)
@@ -86,26 +90,44 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 
             if (validation.IsValid)
             {
-                var lessons = await _lessonRepository.GetByGroupIdAsync(id);
-                List<LessonsDateDto> lessonShort = [];
+                var cacheKey = GetCacheKey(id);
+                if (_cacheManager.TryGetValue(cacheKey, out List<LessonsDateDto>? lessonsFromMemory))
+                {
+                    serviceResult.SetResultData(lessonsFromMemory);
+                    return serviceResult;
+                }
 
+                var lessons = await _lessonRepository.GetByGroupIdAsync(id);
                 if (lessons != null)
                 {
-                    foreach (var lesson in lessons)
-                    {
-                        DateOnly? dateOnly = null;
-                        if (lesson.Date != null)
-                        {
-                            dateOnly = DateOnly.FromDateTime((DateTime)lesson.Date);
-                        }
-
-                        lessonShort.Add(new(lesson.Id, dateOnly));
-                    }
+                    var lessonsShort = CreateLessonsList(lessons);
+                    _cacheManager.Set(cacheKey, lessonsShort);
+                    serviceResult.SetResultData(lessonsShort);
                 }
             }
 
             return serviceResult;
         }
+
+
+        private List<LessonsDateDto> CreateLessonsList(List<Lesson> lessons)
+        {
+            List<LessonsDateDto> lessonsShort = [];
+            foreach (var lesson in lessons)
+            {
+                DateOnly? dateOnly = null;
+                if (lesson.Date != null)
+                {
+                    dateOnly = DateOnly.FromDateTime((DateTime)lesson.Date);
+                }
+
+                lessonsShort.Add(new(lesson.Id, dateOnly));
+            }
+
+            return lessonsShort;
+        }
+
+        private string GetCacheKey(Guid id) => $"{CackePrefixKeyConstants.LESSONS_FOR_GROUP}_{id}";
 
         private LessonShortDto CreateShortLesson(Lesson fullLesson)
         {
@@ -117,8 +139,6 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                     fullLesson.Place,
                     fullLesson.FormControl);
         }
-
-
 
     }
 }

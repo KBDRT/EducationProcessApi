@@ -1,7 +1,6 @@
 ﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
 using EducationProcessAPI.Application.Abstractions.Repositories;
-using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using MediatR;
 
@@ -30,24 +29,27 @@ namespace Application.CQRS.Analysis.Commands.CreateOption
             }
 
             var criteria = await _analysisRepository.GetCriteriaByIdAsync(request.CriteriaId);
-
             if (criteria == null)
             {
                 serviceResult.AddMessage("Criteria не найден", "criteriaId");
                 return serviceResult;
             }
 
-            CriterionOption option = new CriterionOption()
-            {
-                Id = Guid.NewGuid(),
-                Name = request.OptionName,
-                Criterion = criteria
-            };
-
+            CriterionOption option = CreateNewOption(request.OptionName, criteria);
             var id = await _analysisRepository.CreateOptionAsync(option);
             serviceResult.SetResultData(id);
 
             return serviceResult;
+        }
+
+        private CriterionOption CreateNewOption(string optionName, AnalysisCriteria criteria)
+        {
+            return new()
+            {
+                Id = Guid.NewGuid(),
+                Name = optionName,
+                Criterion = criteria
+            };
         }
     }
 }

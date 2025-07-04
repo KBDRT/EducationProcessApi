@@ -22,24 +22,29 @@ namespace Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter
             var serviceResult = new CQResult<List<TeacherDto>>();
 
             List<Teacher> teachers = await _teacherRepository.GetAfterWithSizeAsync(request);
-
             List<TeacherDto> teachersShortFormat = [];
+
             foreach (Teacher teacher in teachers)
             {
-                TeacherDto teacherDto = new TeacherDto
-                (
-                    teacher.Id,
-                    teacher.Surname,
-                    teacher.Name,
-                    teacher.Patronymic,
-                    teacher.BirthDate
-                );
-
+                TeacherDto teacherDto = CreateTeacherResponse(teacher);
                 teachersShortFormat.Add(teacherDto);
             }
+
             serviceResult.SetResultData(teachersShortFormat);
 
             return serviceResult;
+        }
+
+        private TeacherDto CreateTeacherResponse(Teacher teacher)
+        {
+            return new
+            (
+                teacher.Id,
+                teacher.Surname,
+                teacher.Name,
+                teacher.Patronymic,
+                teacher.BirthDate
+            );
         }
     }
 }

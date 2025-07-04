@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Result.CQResult;
 using Application.Validators.Base;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using FluentValidation;
@@ -26,21 +27,25 @@ namespace Application.CQRS.Analysis.Commands.CreateCriteria
 
             if (validation.IsValid)
             {
-                AnalysisCriteria criteria = new AnalysisCriteria()
-                {
-                    Id = Guid.NewGuid(),
-                    AnalysisTarget = request.AnalysisTarget,
-                    Description = request.Description ?? string.Empty,
-                    Name = request.Name,
-                    Order = request.Order,
-                    WordMark = request.WordMark,
-                };
-
+                AnalysisCriteria criteria = CreateNewCriteria(request);
                 var id = await _analysisRepository.CreateCriteriaAsync(criteria, cancellationToken);
                 serviceResult.SetResultData(id);
             }
 
             return serviceResult;
+        }
+
+        private AnalysisCriteria CreateNewCriteria(CreateCriteriaCommand request)
+        {
+            return new AnalysisCriteria()
+            {
+                Id = Guid.NewGuid(),
+                AnalysisTarget = request.AnalysisTarget,
+                Description = request.Description ?? string.Empty,
+                Name = request.Name,
+                Order = request.Order,
+                WordMark = request.WordMark,
+            };
         }
     }
 }

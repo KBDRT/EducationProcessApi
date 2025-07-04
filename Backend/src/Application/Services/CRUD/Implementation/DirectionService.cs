@@ -27,19 +27,23 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 
             if (validation.IsValid)
             {
-                var newDirection = new ArtDirection()
-                {
-                    Id = Guid.NewGuid(),
-                    Description = directionDto.Description,
-                    FullName = directionDto.FullName,
-                    ShortName = directionDto.ShortName,
-                };
-
+                ArtDirection newDirection = CreateNewDirection(directionDto);
                 var id = await _directionRepository.CreateAsync(newDirection);
                 serviceResult.SetResultData(id);
             }
 
             return serviceResult;
+        }
+
+        private ArtDirection CreateNewDirection(CreateDirectionDto directionDto)
+        {
+            return new ArtDirection()
+            {
+                Id = Guid.NewGuid(),
+                Description = directionDto.Description,
+                FullName = directionDto.FullName,
+                ShortName = directionDto.ShortName,
+            };
         }
 
         public async Task<ServiceResultManager<List<ArtDirection>>> GetAsync()
@@ -64,7 +68,6 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
 
             return serviceResult;
         }
-
 
     }
 }

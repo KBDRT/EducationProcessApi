@@ -2,9 +2,8 @@
 using Application.DTO;
 using Application.Validators.Base;
 using Application.Validators.CRUD.General;
-using DocumentFormat.OpenXml.Office2010.Excel;
 using EducationProcessAPI.Application.Abstractions.Repositories;
-using FluentValidation;
+using EducationProcessAPI.Domain.Entities;
 using MediatR;
 
 namespace Application.CQRS.Teachers.Queries.GetTeacherById
@@ -29,23 +28,27 @@ namespace Application.CQRS.Teachers.Queries.GetTeacherById
             if (validation.IsValid)
             {
                 var teacher = await _teacherRepository.GetByIdAsync(request.TeacherId);
-
                 if (teacher != null)
                 {
-                    TeacherDto teacherDto = new
-                    (
-                        teacher.Id,
-                        teacher.Surname,
-                        teacher.Name,
-                        teacher.Patronymic,
-                        teacher.BirthDate
-                    );
-
+                    TeacherDto teacherDto = CreateTeacherResponse(teacher);
                     serviceResult.SetResultData(teacherDto);
                 }
             }
 
             return serviceResult;
+        }
+
+
+        private TeacherDto CreateTeacherResponse(Teacher teacher)
+        {
+            return new
+            (
+                teacher.Id,
+                teacher.Surname,
+                teacher.Name,
+                teacher.Patronymic,
+                teacher.BirthDate
+            );
         }
     }
 }

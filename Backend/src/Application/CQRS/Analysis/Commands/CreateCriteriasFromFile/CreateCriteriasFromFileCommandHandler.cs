@@ -36,7 +36,6 @@ namespace Application.CQRS.Analysis.Commands.CreateCriteriasFromFile
             }
 
             using var fileStream = file.OpenReadStream();
-
             var criterias = await _fileParser.ParseAsync(fileStream);
             criterias.ForEach(item => item.AnalysisTarget = request.Target);
 

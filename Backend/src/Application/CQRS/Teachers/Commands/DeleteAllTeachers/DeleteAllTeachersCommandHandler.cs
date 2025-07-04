@@ -17,7 +17,6 @@ namespace Application.CQRS.Teachers.Commands.DeleteAllTeachers
         {
             var serviceResult = new CQResult<int>();
             var deletedCount = await _teacherRepository.DeleteAllAsync();
-
             serviceResult.SetResultData(deletedCount);
 
             return serviceResult;

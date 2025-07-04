@@ -1,4 +1,6 @@
 ﻿
+using Serilog;
+
 namespace Presentation.Middleware
 {
     public class RequestLoggingMiddleware

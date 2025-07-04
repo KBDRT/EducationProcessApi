@@ -1,6 +1,7 @@
 ﻿using Application.CQRS.Result.CQResult;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using MediatR;
 
 namespace Application.CQRS.Analysis.Querires.GetCriteriasByTarget
@@ -19,22 +20,10 @@ namespace Application.CQRS.Analysis.Querires.GetCriteriasByTarget
             var serviceResult = new CQResult<List<GetCriteriasWithOptionsDto>>();
             var criterias = await _analysisRepository.GetByTargetAsync(request.Target);
 
-            List<GetCriteriasWithOptionsDto> outputCriterias = [];
-            serviceResult.SetResultData(outputCriterias);
-
             if (criterias != null)
             {
-                foreach (var criteria in criterias)
-                {
-                    List<GetOptionsDto> options = new List<GetOptionsDto>();
-
-                    foreach (var option in criteria.Options)
-                    {
-                        options.Add(new(option.Name, option.Id));
-                    }
-
-                    outputCriterias.Add(new(criteria.Name, criteria.Description, criteria.Id, options));
-                }
+                List<GetCriteriasWithOptionsDto> outputCriterias = CrateCriteriasList(criterias);
+                serviceResult.SetResultData(outputCriterias);
             }
             else
             {
@@ -43,5 +32,24 @@ namespace Application.CQRS.Analysis.Querires.GetCriteriasByTarget
 
             return serviceResult;
         }
+
+        private List<GetCriteriasWithOptionsDto> CrateCriteriasList(List<AnalysisCriteria> criterias)
+        {
+            List<GetCriteriasWithOptionsDto> outputCriterias = [];
+
+            foreach (var criteria in criterias)
+            {
+                List<GetOptionsDto> options = new List<GetOptionsDto>();
+
+                foreach (var option in criteria.Options)
+                {
+                    options.Add(new(option.Name, option.Id));
+                }
+                outputCriterias.Add(new(criteria.Name, criteria.Description, criteria.Id, options));
+            }
+
+            return outputCriterias;
+        }
+
     }
 }

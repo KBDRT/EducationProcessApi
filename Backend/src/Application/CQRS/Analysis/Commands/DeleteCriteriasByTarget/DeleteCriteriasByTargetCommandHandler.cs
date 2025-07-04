@@ -20,7 +20,6 @@ namespace Application.CQRS.Analysis.Commands.DeleteCriteriasByTarget
         public async Task<CQResult> Handle(DeleteCriteriasByTargetCommand request, CancellationToken cancellationToken)
         {
             await _analysisRepository.DeleteByTargetAsync(request.Target);
-
             return new CQResult();
         }
     }

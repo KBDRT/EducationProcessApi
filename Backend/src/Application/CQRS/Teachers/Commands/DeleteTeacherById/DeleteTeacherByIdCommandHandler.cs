@@ -1,5 +1,4 @@
 ﻿using Application.CQRS.Result.CQResult;
-using Application.CQRS.Teachers.Commands.DeleteAllTeachers;
 using Application.DTO;
 using Application.Validators.CRUD.General;
 using EducationProcessAPI.Application.Abstractions.Repositories;

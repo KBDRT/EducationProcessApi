@@ -1,6 +1,7 @@
 ﻿using Application;
 using Application.Validators.Base;
 using Application.Validators.CRUD.General;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
@@ -37,37 +38,38 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             }
             
             Teacher? teacher = await _teacherRepository.GetByIdAsync(artUnion.TeacherId);
-
             if (teacher == null)
             {
                 serviceResult.AddMessage("Teacher не найден", "TeacherId");
             }
 
             ArtDirection? direction = await _directionRepository.GetByIdAsync(artUnion.DirectionId);
-
             if (direction == null)
             {
                 serviceResult.AddMessage("Direction не найден", "DirectionId");
             }
 
-            if (teacher  != null && direction != null)
+            if (teacher != null && direction != null)
             {
-                ArtUnion newArtUnion = new ArtUnion()
-                {
-                    Id = Guid.NewGuid(),
-                    Description = artUnion.Description,
-                    Direction = direction,
-                    Teacher = teacher,
-                    Name = artUnion.Name,
-                    EduDuration = artUnion.Duration,
-                };
-
+                ArtUnion newArtUnion = CreateNewUnion(artUnion, direction, teacher);
                 var id = await _unionRepository.CreateAsync(newArtUnion);
-
                 serviceResult.SetResultData(id);
             }
 
             return serviceResult;
+        }
+
+        private ArtUnion CreateNewUnion(CreateUnionDto artUnion, ArtDirection direction, Teacher teacher)
+        {
+            return new ArtUnion()
+            {
+                Id = Guid.NewGuid(),
+                Description = artUnion.Description,
+                Direction = direction,
+                Teacher = teacher,
+                Name = artUnion.Name,
+                EduDuration = artUnion.Duration,
+            };
         }
 
         public async Task<ServiceResultManager<ArtUnion?>> GetByIdAsync(Guid id)
@@ -77,7 +79,7 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             
             if (validation.IsValid)
             {
-                var artUnion =await _unionRepository.GetByIdAsync(id);
+                var artUnion = await _unionRepository.GetByIdAsync(id);
                 resultService.SetResultData(artUnion);
             }
 
@@ -92,27 +94,34 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
             if (validation.IsValid)
             {
                 List<ArtUnion> unions = await _unionRepository.GetByTeacherIdAsync(teacherId);
-                List<GetUnionDto> unionsResponse = new List<GetUnionDto>();
-
-                foreach (var union in unions)
-                {
-                    GetUnionDto unionResponse = new GetUnionDto()
-                    {
-                        Id = union.Id,
-                        Name = union.Name,
-                        DirectionName = union.Direction.ShortName,
-                        EduDuration = union.EduDuration,
-                        Description = union.Description,
-                        Groups = GetUnionDto.ListCreateGroup(union.Groups)
-                    };
-
-                    unionsResponse.Add(unionResponse);
-                }
-
+                List<GetUnionDto> unionsResponse = CreateUnionResponse(unions);
                 resultService.SetResultData(unionsResponse);
             }
 
             return resultService;
         }
+
+        private List<GetUnionDto> CreateUnionResponse(List<ArtUnion> unions)
+        {
+            List<GetUnionDto> unionsResponse = new List<GetUnionDto>();
+
+            foreach (var union in unions)
+            {
+                GetUnionDto unionResponse = new GetUnionDto()
+                {
+                    Id = union.Id,
+                    Name = union.Name,
+                    DirectionName = union.Direction.ShortName,
+                    EduDuration = union.EduDuration,
+                    Description = union.Description,
+                    Groups = GetUnionDto.ListCreateGroup(union.Groups)
+                };
+
+                unionsResponse.Add(unionResponse);
+            }
+
+            return unionsResponse;
+        }
+
     }
 }
