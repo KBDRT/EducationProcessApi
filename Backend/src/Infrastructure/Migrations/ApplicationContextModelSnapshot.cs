@@ -61,7 +61,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("AnalysisDocuments", (string)null);
+                    b.ToTable("AnalysisDocuments");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtDirection", b =>
@@ -84,7 +84,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ArtDirections", (string)null);
+                    b.ToTable("ArtDirections");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtUnion", b =>
@@ -116,7 +116,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("ArtUnions", (string)null);
+                    b.ToTable("ArtUnions");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.Group", b =>
@@ -140,7 +140,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ArtUnionId");
 
-                    b.ToTable("Groups", (string)null);
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.Lesson", b =>
@@ -178,7 +178,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Lessons", (string)null);
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", b =>
@@ -212,7 +212,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("AnalysisDocumentId");
 
-                    b.ToTable("AnalyzeCriterions", (string)null);
+                    b.ToTable("AnalyzeCriterions");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.CriterionOption", b =>
@@ -232,7 +232,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CriterionId");
 
-                    b.ToTable("CriterionOptions", (string)null);
+                    b.ToTable("CriterionOptions");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.Teacher", b =>
@@ -258,7 +258,26 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>

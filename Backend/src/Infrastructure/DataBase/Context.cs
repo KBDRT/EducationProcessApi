@@ -28,6 +28,8 @@ public class ApplicationContext : DbContext
 
     public DbSet<AnalysisDocument> AnalysisDocuments { get; set; } = null!;
 
+    public DbSet<User> Users { get; set; } = null!;
+
     public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
     {

@@ -1,7 +1,11 @@
 ﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Presentation.Extensions
@@ -13,6 +17,19 @@ namespace Presentation.Extensions
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("https://localhost:5173");
+                    policy.AllowCredentials();
+                    policy.AllowAnyMethod();
+                    policy.AllowAnyHeader();
+                });
+            });
+
+            AddAuth(services, configuration);
+
             services.AddDependency();
 
             AddDatabase(services, configuration);
@@ -23,16 +40,6 @@ namespace Presentation.Extensions
             services.AddMediatR(cfg =>
                 cfg.RegisterServicesFromAssembly(typeof(CreateTeacherCommand).Assembly));
 
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(policy =>
-                {
-                    policy.WithOrigins("http://localhost:5173");
-                    policy.AllowAnyHeader();
-                    policy.AllowAnyMethod();
-                });
-            });
-
             services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
@@ -42,6 +49,45 @@ namespace Presentation.Extensions
             services.AddSwaggerGen();
         }
 
+
+        private static void AddAuth(IServiceCollection services, IConfiguration configuration)
+        {
+            var key = "KEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEY";
+
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+            {
+                options.RequireHttpsMetadata = true;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
+                };
+
+                options.Events = new JwtBearerEvents 
+                {
+                    OnMessageReceived = context =>
+                    {
+                        context.Token = context.Request.Cookies["token"];
+
+                        return Task.CompletedTask;
+                    }
+                };
+
+            });
+
+            services.AddAuthorization();
+        }
 
         private static void AddDatabase(IServiceCollection services, IConfiguration configuration)
         {

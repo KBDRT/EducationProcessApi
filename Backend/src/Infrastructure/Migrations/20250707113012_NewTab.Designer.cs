@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250627123511_test")]
-    partial class test
+    [Migration("20250707113012_NewTab")]
+    partial class NewTab
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,49 @@ namespace Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("AnalysisTarget")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid?>("ArtUnionId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AuditorName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateOnly>("CheckDate")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid?>("LessonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ResultDescription")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("TeacherId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtUnionId");
+
+                    b.HasIndex("LessonId");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("AnalysisDocuments");
+                });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtDirection", b =>
                 {
@@ -147,6 +190,9 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("AnalysisDocumentId")
+                        .HasColumnType("uuid");
+
                     b.Property<int>("AnalysisTarget")
                         .HasColumnType("integer");
 
@@ -166,6 +212,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnalysisDocumentId");
 
                     b.ToTable("AnalyzeCriterions");
                 });
@@ -216,6 +264,46 @@ namespace Infrastructure.Migrations
                     b.ToTable("Teachers");
                 });
 
+            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
+                {
+                    b.HasOne("EducationProcessAPI.Domain.Entities.ArtUnion", "ArtUnion")
+                        .WithMany()
+                        .HasForeignKey("ArtUnionId");
+
+                    b.HasOne("EducationProcessAPI.Domain.Entities.Lesson", "Lesson")
+                        .WithMany()
+                        .HasForeignKey("LessonId");
+
+                    b.HasOne("EducationProcessAPI.Domain.Entities.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherId");
+
+                    b.Navigation("ArtUnion");
+
+                    b.Navigation("Lesson");
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtUnion", b =>
                 {
                     b.HasOne("EducationProcessAPI.Domain.Entities.ArtDirection", "Direction")
@@ -257,6 +345,13 @@ namespace Infrastructure.Migrations
                     b.Navigation("Group");
                 });
 
+            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", b =>
+                {
+                    b.HasOne("Domain.Entities.Analysis.AnalysisDocument", null)
+                        .WithMany("SelectedCriterias")
+                        .HasForeignKey("AnalysisDocumentId");
+                });
+
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.CriterionOption", b =>
                 {
                     b.HasOne("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", "Criterion")
@@ -266,6 +361,11 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Criterion");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
+                {
+                    b.Navigation("SelectedCriterias");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtUnion", b =>

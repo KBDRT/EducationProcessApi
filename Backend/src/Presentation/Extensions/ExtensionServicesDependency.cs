@@ -1,4 +1,5 @@
-﻿using Application.Cache.Definition;
+﻿using Application.Abstractions.Repositories;
+using Application.Cache.Definition;
 using Application.Cache.Implementation;
 using Application.CQRS.Analysis.Commands.CreateCriteria;
 using Application.CQRS.Analysis.Commands.CreateOption;
@@ -78,6 +79,7 @@ namespace Presentation.Extensions
             services.AddScoped<IGroupRepository, GroupRepository>();
             services.AddScoped<ILessonRepository, LessonRepository>();
             services.AddScoped<IAnalysisRepository, AnalysisRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         private static void AddParsers(IServiceCollection services)

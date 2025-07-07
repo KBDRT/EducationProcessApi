@@ -1,4 +1,5 @@
-﻿using Presentation.Middleware;
+﻿using Microsoft.AspNetCore.CookiePolicy;
+using Presentation.Middleware;
 using Serilog;
 using Serilog.Events;
 
@@ -8,6 +9,14 @@ namespace Presentation.Extensions
     {
         public static void ConfigureApp(this WebApplication app)
         {
+
+            app.UseCors();
+
+            //app.UseMiddleware<AuthMiddleware>();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseSerilogRequestLogging(options =>
             {
                 options.MessageTemplate = " REQUEST RESULT! - REQUEST: {RequestPath}, METHOD: {RequestMethod}, STATUS_CODE: {StatusCode}, ELAPSED: {Elapsed}";
@@ -27,7 +36,15 @@ namespace Presentation.Extensions
                 });
             //}
 
-            app.UseCors();
+
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+                HttpOnly = HttpOnlyPolicy.Always,
+                Secure = CookieSecurePolicy.Always
+            });
+
+            
             app.MapControllers();
         }
 

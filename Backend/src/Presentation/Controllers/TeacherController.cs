@@ -14,6 +14,7 @@ using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 
@@ -22,6 +23,7 @@ namespace EducationProcess.Presentation.Controllers
 
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class TeachersController : BaseController
     {
         private readonly IMediator _mediator;

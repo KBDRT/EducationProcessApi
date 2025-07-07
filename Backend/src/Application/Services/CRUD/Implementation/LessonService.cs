@@ -46,6 +46,10 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                 Lesson newLesson = CreateNewLesson(lesson, group);
                 var id = await _lessonRepository.CreateAsync(newLesson);
                 serviceResult.SetResultData(id);
+
+                var cacheKey = GetCacheKey(lesson.GroupId);
+                _cacheManager.Remove(cacheKey);
+
             }
 
             return serviceResult;
