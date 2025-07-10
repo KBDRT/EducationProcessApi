@@ -2,6 +2,7 @@
 using CSharpFunctionalExtensions;
 using EducationProcess.Presentation.Contracts.ArtDirection;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 
@@ -10,6 +11,7 @@ namespace EducationProcess.Presentation.Controllers
     [ApiController]
 
     [Route("[controller]")]
+    [Authorize(Policy = "RoleHead")]
     public class DirectionController : BaseController
     {
         private readonly IDirectionService _directionService;
@@ -29,6 +31,7 @@ namespace EducationProcess.Presentation.Controllers
 
             return FormResultFromService(result.ResultData, result.Messages, result.ResultCode);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAsync()

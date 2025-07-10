@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities.Analysis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,9 @@ namespace EducationProcessAPI.Domain.Entities.LessonAnalyze
         public string WordMark { get; set; } = string.Empty;
         public int Order { get; set; }
 
-        public List<CriterionOption> Options { get; set; } = new List<CriterionOption>();
+        public List<CriterionOption> Options { get; set; } = [];
+
+        public List<AnalysisDocument> Document { get; set; } = [];
+
     }
 }

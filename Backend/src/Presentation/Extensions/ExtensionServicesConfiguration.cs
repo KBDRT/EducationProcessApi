@@ -1,23 +1,30 @@
 ﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
-using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using System.Security.Cryptography;
+using Serilog.Events;
 using System.Text;
 using System.Text.Json.Serialization;
+using Serilog.Sinks.SpectreConsole;
+using Application.Auth;
+using Application.Auth.Policy.Requirements;
 
 namespace Presentation.Extensions
 {
-
     public static class ExtensionServicesConfiguration
     {
+        private static IServiceCollection _services = null!;
+        private static IConfiguration _configuration = null!;
 
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
+            _services = services;
+            _configuration = configuration;
 
-            services.AddCors(options =>
+            AddSettings();
+
+            _services.AddCors(options =>
             {
                 options.AddDefaultPolicy(policy =>
                 {
@@ -28,34 +35,40 @@ namespace Presentation.Extensions
                 });
             });
 
-            AddAuth(services, configuration);
+            AddAuth();
 
-            services.AddDependency();
+            _services.AddDependency();
 
-            AddDatabase(services, configuration);
-            AddRedis(services, configuration);
+            AddSerilogCustom();
+            AddDatabase();
+            AddRedis();
 
-            services.AddMemoryCache();
+            _services.AddMemoryCache();
 
-            services.AddMediatR(cfg =>
+            _services.AddMediatR(cfg =>
                 cfg.RegisterServicesFromAssembly(typeof(CreateTeacherCommand).Assembly));
 
-            services.AddControllers().AddJsonOptions(options =>
+            _services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
 
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            _services.AddEndpointsApiExplorer();
+            _services.AddSwaggerGen();
         }
 
-
-        private static void AddAuth(IServiceCollection services, IConfiguration configuration)
+        private static void AddAuth()
         {
-            var key = "KEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEY";
+            var key = _configuration?.GetSection("AuthenticationSettings")?.GetSection("SecretKey").Value;
 
+            if (String.IsNullOrWhiteSpace(key))
+            {
+                Log.Fatal("No Secretkey for Authentication!");
+                return;
+            }
 
-            services.AddAuthentication(options =>
+            var tokenName = _configuration?.GetSection("AuthenticationSettings")?.GetSection("CookieNameForToken").Value;
+            _services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,7 +91,7 @@ namespace Presentation.Extensions
                 {
                     OnMessageReceived = context =>
                     {
-                        context.Token = context.Request.Cookies["token"];
+                        context.Token = context.Request.Cookies[tokenName];
 
                         return Task.CompletedTask;
                     }
@@ -86,12 +99,16 @@ namespace Presentation.Extensions
 
             });
 
-            services.AddAuthorization();
+            _services.AddAuthorization(options => {
+                options.AddPolicy("RoleAdmin", policy => policy.Requirements.Add(new RoleRequirement("Admin")));
+                options.AddPolicy("RoleTeacher", policy => policy.Requirements.Add(new RoleRequirement("Teacher")));
+                options.AddPolicy("RoleHead", policy => policy.Requirements.Add(new RoleRequirement("Head")));
+            });
         }
 
-        private static void AddDatabase(IServiceCollection services, IConfiguration configuration)
+        private static void AddDatabase()
         {
-            string? connectionDB = configuration?.GetConnectionString("DefaultConnectionDataBase");
+            string? connectionDB = _configuration?.GetConnectionString("DefaultConnectionDataBase");
 
             if (String.IsNullOrWhiteSpace(connectionDB))
             {
@@ -99,12 +116,12 @@ namespace Presentation.Extensions
                 return;
             }
 
-            services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionDB));
+            _services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionDB));
         }
 
-        private static void AddRedis(IServiceCollection services, IConfiguration configuration)
+        private static void AddRedis()
         {
-            string? connectionRedis = configuration?.GetConnectionString("DefaultConnectionRedis");
+            string? connectionRedis = _configuration?.GetConnectionString("DefaultConnectionRedis");
 
             if (String.IsNullOrWhiteSpace(connectionRedis))
             {
@@ -112,7 +129,7 @@ namespace Presentation.Extensions
                 return;
             }
 
-            services.AddStackExchangeRedisCache(options => {
+            _services.AddStackExchangeRedisCache(options => {
                 options.InstanceName = "local";
                 options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
                 {
@@ -122,6 +139,27 @@ namespace Presentation.Extensions
                     AbortOnConnectFail = false
                 };
             });
+        }
+
+        private static void AddSerilogCustom()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.SpectreConsole("{Timestamp:HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
+                .MinimumLevel.Verbose()
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Cors", LogEventLevel.Warning)
+                .CreateLogger();
+
+            _services.AddSerilog();
+        }
+
+        private static void AddSettings()
+        {
+            _services.Configure<AuthSettings>(_configuration.GetSection("AuthenticationSettings"));
         }
 
     }

@@ -14,7 +14,7 @@ namespace Domain.Entities.Analysis
     public class AnalysisDocument
     {
 
-        private List<AnalysisCriteria> _selectedCriterias;
+        private List<AnalysisCriteria> _selectedCriterias = [];
 
         public Guid Id { get; private set; }
 
@@ -78,9 +78,12 @@ namespace Domain.Entities.Analysis
                 AuditorName = name;
         }
 
-        public void AddCriteria(AnalysisCriteria criteria)
+        public void AddCriterias(List<AnalysisCriteria> criterias)
         {
-            if (criteria.Options.Count > 0)
+            if (criterias == null)
+                return;
+
+            foreach (var criteria in criterias)
             {
                 _selectedCriterias.Add(criteria);
             }

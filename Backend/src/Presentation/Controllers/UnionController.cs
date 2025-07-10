@@ -1,6 +1,7 @@
 ﻿using EducationProcess.Presentation.Contracts.ArtUnion;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 
@@ -9,6 +10,7 @@ namespace EducationProcess.Presentation.Controllers
 
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Policy = "RoleHead")]
     public class UnionController : BaseController
     {
         private readonly IUnionService _unionService;

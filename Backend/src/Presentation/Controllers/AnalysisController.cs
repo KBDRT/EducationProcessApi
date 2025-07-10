@@ -10,6 +10,7 @@ using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 using System.Threading;
@@ -18,6 +19,7 @@ namespace EducationProcess.Presentation.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Policy = "RoleHead")]
     public class AnalysisController : BaseController
     {
 

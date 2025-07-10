@@ -2,6 +2,7 @@
 using EducationProcess.Presentation.Contracts.Lesson;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Presentation;
@@ -12,6 +13,7 @@ namespace EducationProcess.Presentation.Controllers
     [ApiController]
 
     [Route("[controller]")]
+    [Authorize(Policy = "RoleTeacher")]
 
     public class LessonController : BaseController
     {
@@ -26,7 +28,7 @@ namespace EducationProcess.Presentation.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody]  CreateLessonRequest request)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateLessonRequest request)
         {
             var newLesson = new LessonDto
             (

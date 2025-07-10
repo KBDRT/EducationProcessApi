@@ -24,13 +24,20 @@ namespace Application.CQRS.Analysis.Commands.CreateDocument
             var serviceResult = new CQResult<Guid>();
             AnalysisDocument document = new AnalysisDocument(AnalysisTarget.Lesson);
 
+            if (request.OptionsId != null && request.OptionsId.Count > 0)
+            {
+                var criterias = await _analysisRepository.GetCriteriasByOptionsIdAsync(request.OptionsId);
+                document.AddCriterias(criterias);
+            }
+            
             document.SetDesctiption(request.ResultDescription);
             document.SetDate(request.CheckDate);
             document.SetAuditor(request.AuditorName);
-            document.SetLesson(await _lessonRepository.GetWithIncludesByIdAsync(request.LessonId));
+
+            var lesson = await _lessonRepository.GetWithIncludesByIdAsync(request.LessonId);
+            document.SetLesson(lesson);
 
             var documentStatus = document.IsDocumentCorrect();
-
             if (documentStatus.IsValid)
             {
                 var id = await _analysisRepository.CreateDocumentAsync(document);

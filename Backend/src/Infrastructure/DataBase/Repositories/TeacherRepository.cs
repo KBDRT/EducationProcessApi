@@ -1,4 +1,5 @@
 ﻿using Application.CQRS.Teachers.Queries.GetTeachersPaginationAfter;
+using DocumentFormat.OpenXml.InkML;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Domain.Entities;
@@ -45,9 +46,9 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
         {
             List<Teacher> teachers = await _context.Teachers
                                         .Where(x => x.Id > request.AfterTeacherId)
-                                        .OrderBy(x => x.Surname)
-                                        .ThenBy(x => x.Name)
-                                        .ThenBy(x => x.Patronymic)
+                                        .OrderBy(x => x.Initials.Surname)
+                                        .ThenBy(x => x.Initials.Name)
+                                        .ThenBy(x => x.Initials.Patronymic)
                                         .Take(request.ListSize)
                                         .AsNoTracking().ToListAsync();
 
@@ -75,6 +76,13 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
         public async Task DeleteByIdAsync(Guid id)
         {
             await _context.Teachers.Where(x => x.Id == id).ExecuteDeleteAsync();
+        }
+
+        public async Task SetUserForTeacherAsync(Guid teacherId, Guid userId)
+        {
+            await _context.Teachers.Where(t => t.Id == teacherId)
+                                   .ExecuteUpdateAsync(u => u
+                                   .SetProperty(f => f.User.Id, userId));
         }
     }
 }

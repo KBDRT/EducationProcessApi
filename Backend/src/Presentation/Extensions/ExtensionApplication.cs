@@ -10,6 +10,8 @@ namespace Presentation.Extensions
         public static void ConfigureApp(this WebApplication app)
         {
 
+            app.UseMiddleware<ExceptionMiddleware>();
+
             app.UseCors();
 
             //app.UseMiddleware<AuthMiddleware>();
@@ -24,8 +26,7 @@ namespace Presentation.Extensions
             });
 
             app.UseMiddleware<RequestLoggingMiddleware>();
-            app.UseMiddleware<ExceptionMiddleware>();
-
+            
             //if (app.Environment.IsDevelopment())
             //{
                 app.UseSwagger();
@@ -35,7 +36,6 @@ namespace Presentation.Extensions
                     options.RoutePrefix = string.Empty;
                 });
             //}
-
 
             app.UseCookiePolicy(new CookiePolicyOptions
             {

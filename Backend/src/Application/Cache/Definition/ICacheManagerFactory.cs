@@ -4,6 +4,6 @@ namespace Application.Cache.Definition
 {
     public interface ICacheManagerFactory
     {
-        CacheManager Create(CacheManagerTypes type);
+        ICacheManager Create(CacheManagerTypes type);
     }
 }

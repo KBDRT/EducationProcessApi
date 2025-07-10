@@ -23,7 +23,7 @@ namespace EducationProcess.Presentation.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    [Authorize(Policy = "RoleHead")]
     public class TeachersController : BaseController
     {
         private readonly IMediator _mediator;

@@ -41,7 +41,6 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
                             .Include(x => x.Group)
                             .ThenInclude(x => x.ArtUnion)
                             .ThenInclude(x => x.Teacher)
-                            .AsNoTracking()
                             .SingleOrDefaultAsync(x => x.Id == id) ?? null;
         }
     }

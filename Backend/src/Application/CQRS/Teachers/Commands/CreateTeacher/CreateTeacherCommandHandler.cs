@@ -38,9 +38,9 @@ namespace Application.CQRS.Teachers.Commands.CreateTeacher
             return new Teacher()
             {
                 Id = Guid.NewGuid(),
-                Surname = request.Surname,
-                Name = request.Name,
-                Patronymic = request.Patronymic,
+                Initials = new() { Surname = request.Surname,
+                                   Name = request.Name,
+                                   Patronymic = request.Patronymic},
                 BirthDate = request.BirthDate
             };
         }

@@ -21,6 +21,21 @@ namespace Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("AnalysisCriteriaAnalysisDocument", b =>
+                {
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SelectedCriteriasId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("DocumentId", "SelectedCriteriasId");
+
+                    b.HasIndex("SelectedCriteriasId");
+
+                    b.ToTable("AnalysisCriteriaAnalysisDocument");
+                });
+
             modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
                 {
                     b.Property<Guid>("Id")
@@ -62,6 +77,78 @@ namespace Infrastructure.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("AnalysisDocuments");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.Permission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Action")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TargetForAction")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Permissions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRu")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PasswordHashed")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtDirection", b =>
@@ -187,9 +274,6 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("AnalysisDocumentId")
-                        .HasColumnType("uuid");
-
                     b.Property<int>("AnalysisTarget")
                         .HasColumnType("integer");
 
@@ -209,8 +293,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnalysisDocumentId");
 
                     b.ToTable("AnalyzeCriterions");
                 });
@@ -244,40 +326,59 @@ namespace Infrastructure.Migrations
                     b.Property<DateOnly>("BirthDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Patronymic")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.User", b =>
+            modelBuilder.Entity("PermissionRole", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("PermissionsId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("RolesId")
+                        .HasColumnType("uuid");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.HasKey("PermissionsId", "RolesId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("RolesId");
 
-                    b.ToTable("Users");
+                    b.ToTable("PermissionRole");
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.Property<Guid>("RolesId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UsersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("RolesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("RoleUser");
+                });
+
+            modelBuilder.Entity("AnalysisCriteriaAnalysisDocument", b =>
+                {
+                    b.HasOne("Domain.Entities.Analysis.AnalysisDocument", null)
+                        .WithMany()
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", null)
+                        .WithMany()
+                        .HasForeignKey("SelectedCriteriasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
@@ -299,6 +400,40 @@ namespace Infrastructure.Migrations
                     b.Navigation("Lesson");
 
                     b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.User", b =>
+                {
+                    b.OwnsOne("Domain.Entities.PersonInitials", "Initials", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("Name")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Name");
+
+                            b1.Property<string>("Patronymic")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Patronymic");
+
+                            b1.Property<string>("Surname")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Surname");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("Initials")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtUnion", b =>
@@ -342,13 +477,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", b =>
-                {
-                    b.HasOne("Domain.Entities.Analysis.AnalysisDocument", null)
-                        .WithMany("SelectedCriterias")
-                        .HasForeignKey("AnalysisDocumentId");
-                });
-
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.LessonAnalyze.CriterionOption", b =>
                 {
                     b.HasOne("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", "Criterion")
@@ -360,9 +488,74 @@ namespace Infrastructure.Migrations
                     b.Navigation("Criterion");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
+            modelBuilder.Entity("EducationProcessAPI.Domain.Entities.Teacher", b =>
                 {
-                    b.Navigation("SelectedCriterias");
+                    b.HasOne("Domain.Entities.Auth.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.OwnsOne("Domain.Entities.PersonInitials", "Initials", b1 =>
+                        {
+                            b1.Property<Guid>("TeacherId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("Name")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Name");
+
+                            b1.Property<string>("Patronymic")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Patronymic");
+
+                            b1.Property<string>("Surname")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("Surname");
+
+                            b1.HasKey("TeacherId");
+
+                            b1.ToTable("Teachers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("TeacherId");
+                        });
+
+                    b.Navigation("Initials")
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("PermissionRole", b =>
+                {
+                    b.HasOne("Domain.Entities.Auth.Permission", null)
+                        .WithMany()
+                        .HasForeignKey("PermissionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Auth.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.HasOne("Domain.Entities.Auth.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Auth.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EducationProcessAPI.Domain.Entities.ArtUnion", b =>

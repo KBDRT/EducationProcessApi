@@ -21,5 +21,8 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<List<Teacher>?> GetByEduYearAsync(int year);
 
+        public Task SetUserForTeacherAsync(Guid teacherId, Guid userId);
+       
+
     }
 }

@@ -1,16 +1,19 @@
 ﻿using Application.Abstractions.Repositories;
+using Application.Auth.Policy.UploadEduPlan;
 using Application.Cache.Definition;
 using Application.Cache.Implementation;
 using Application.CQRS.Analysis.Commands.CreateCriteria;
 using Application.CQRS.Analysis.Commands.CreateOption;
+using Application.CQRS.Auth.Commands.RegisterUser;
 using Application.CQRS.Teachers.Commands.CreateTeacher;
 using Application.CQRS.Teachers.Commands.UpdateTeacher;
 using Application.DTO;
+using Application.Helpers;
+using Application.Mapping;
 using Application.Validators.Base;
 using Application.Validators.CRUD;
 using Application.Validators.CRUD.Create;
 using Application.Validators.CRUD.General;
-using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Application.Parsers;
@@ -21,88 +24,93 @@ using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementation;
 using EducationProcessAPI.Infrastructure.Files.Parsers;
 using FluentValidation;
-using Serilog;
-using Serilog.Events;
-using Serilog.Sinks.SpectreConsole;
+using Microsoft.AspNetCore.Authorization;
+using Presentation.Mapping;
 
 namespace Presentation.Extensions
 {
     public static class ExtensionServicesDependency
     {
+        private static IServiceCollection _services = null!;
+
         public static void AddDependency(this IServiceCollection services)
         {
-            AddServices(services);
-            AddValidators(services);
-            AddRepositories(services);
-            AddParsers(services);
-            AddSerilogCustom(services);
-            AddCaches(services);
+            _services = services;
+
+            AddHelpers();
+            AddPolicy();
+            AddServices();
+            AddValidators();
+            AddRepositories();
+            AddParsers();
+            AddCaches();
+            AddOthers();
         }
 
-        private static void AddServices(IServiceCollection services)
+        private static void AddServices()
         {
-            services.AddScoped<IUnionService, UnionService>();
-            services.AddScoped<IDirectionService, DirectionService>();
-            services.AddScoped<IGroupService, GroupService>();
-            services.AddScoped<ILessonService, LessonService>();
+            _services.AddScoped<IUnionService, UnionService>();
+            _services.AddScoped<IDirectionService, DirectionService>();
+            _services.AddScoped<IGroupService, GroupService>();
+            _services.AddScoped<ILessonService, LessonService>();
         }
 
-        private static void AddCaches(IServiceCollection services)
+        private static void AddCaches()
         {
-            services.AddScoped<ICacheManagerFactory, CacheManagerFactory>();
+            _services.AddScoped<ICacheManagerFactory, CacheManagerFactory>();
         }
 
 
-        private static void AddValidators(IServiceCollection services)
+        private static void AddValidators()
         {
-            services.AddScoped<IValidatorFactoryCustom, ValidatorFactory>();
+            _services.AddScoped<IValidatorFactoryCustom, ValidatorFactory>();
 
-            services.AddScoped<IValidator<IFormFile>, UploadFileValidator>();
-            services.AddScoped<IValidator<Guid>, GuidEmptyValidator>();
+            _services.AddScoped<IValidator<IFormFile>, UploadFileValidator>();
+            _services.AddScoped<IValidator<Guid>, GuidEmptyValidator>();
 
-            services.AddScoped<IValidator<CreateCriteriaCommand>, CreateCriteriaValidator>();
-            services.AddScoped<IValidator<CreateDirectionDto>, CreateDirectionValidator>();
-            services.AddScoped<IValidator<CreateGroupFromFileDto>, CreateGroupFromFileValidator>();
-            services.AddScoped<IValidator<CreateGroupDto>, CreateGroupValidator>();
-            services.AddScoped<IValidator<LessonDto>, CreateLessonValidator>();
-            services.AddScoped<IValidator<CreateOptionCommand>, CreateOptionValidator>();
-            services.AddScoped<IValidator<CreateTeacherCommand>, CreateTeacherValidator>();
-            services.AddScoped<IValidator<CreateUnionDto>, CreateUnionValidator>();
-            services.AddScoped<IValidator<UpdateTeacherCommand>, UpdateTeacherValidator>();
+            _services.AddScoped<IValidator<CreateCriteriaCommand>, CreateCriteriaValidator>();
+            _services.AddScoped<IValidator<CreateDirectionDto>, CreateDirectionValidator>();
+            _services.AddScoped<IValidator<CreateGroupFromFileDto>, CreateGroupFromFileValidator>();
+            _services.AddScoped<IValidator<CreateGroupDto>, CreateGroupValidator>();
+            _services.AddScoped<IValidator<LessonDto>, CreateLessonValidator>();
+            _services.AddScoped<IValidator<CreateOptionCommand>, CreateOptionValidator>();
+            _services.AddScoped<IValidator<CreateTeacherCommand>, CreateTeacherValidator>();
+            _services.AddScoped<IValidator<CreateUnionDto>, CreateUnionValidator>();
+            _services.AddScoped<IValidator<UpdateTeacherCommand>, UpdateTeacherValidator>();
+            _services.AddScoped<IValidator<RegisterUserCommand>, RegisterUserValidator>();
         }
 
-        private static void AddRepositories(IServiceCollection services)
+        private static void AddRepositories()
         {
-            services.AddScoped<ITeacherRepository, TeacherRepository>();
-            services.AddScoped<IUnionRepository, UnionRepository>();
-            services.AddScoped<IDirectionRepository, DirectionRepository>();
-            services.AddScoped<IGroupRepository, GroupRepository>();
-            services.AddScoped<ILessonRepository, LessonRepository>();
-            services.AddScoped<IAnalysisRepository, AnalysisRepository>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            _services.AddScoped<ITeacherRepository, TeacherRepository>();
+            _services.AddScoped<IUnionRepository, UnionRepository>();
+            _services.AddScoped<IDirectionRepository, DirectionRepository>();
+            _services.AddScoped<IGroupRepository, GroupRepository>();
+            _services.AddScoped<ILessonRepository, LessonRepository>();
+            _services.AddScoped<IAnalysisRepository, AnalysisRepository>();
+            _services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
-        private static void AddParsers(IServiceCollection services)
+        private static void AddParsers()
         {
-            services.AddTransient<IParseFile<Group>, WordParseLesson>();
-            services.AddTransient<IParseFile<AnalysisCriteria>, WordParserGrades>();
+            _services.AddTransient<IParseFile<Group>, WordParseLesson>();
+            _services.AddTransient<IParseFile<AnalysisCriteria>, WordParserGrades>();
         }
 
-        public static void AddSerilogCustom(IServiceCollection services)
+        private static void AddHelpers()
         {
+            _services.AddScoped<JwtTokenGenerator>();
+        }
 
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.SpectreConsole("{Timestamp:HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
-                .MinimumLevel.Verbose()
-                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Information)
-                .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", LogEventLevel.Warning)
-                .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
-                .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-                .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
-                .MinimumLevel.Override("Microsoft.AspNetCore.Cors", LogEventLevel.Warning)
-                .CreateLogger();
+        private static void AddPolicy()
+        {
+            _services.AddTransient<IAuthorizationHandler, RoleRequirementHandler>();
+        }
 
-            services.AddSerilog();
+        private static void AddOthers()
+        {
+            _services.AddAutoMapper(typeof(MappingProfileDto));
+            _services.AddAutoMapper(typeof(MappingProfileRequest));
         }
 
     }

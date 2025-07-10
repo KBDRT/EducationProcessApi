@@ -32,10 +32,10 @@ namespace Application.CQRS.Teachers.Commands.UpdateTeacher
                 }
                 else
                 {
-                    teacherForUpdate.Surname = request.Surname;
+                    teacherForUpdate.Initials.Surname = request.Surname;
+                    teacherForUpdate.Initials.Patronymic = request.Patronymic;
+                    teacherForUpdate.Initials.Name = request.Name;
                     teacherForUpdate.BirthDate = request.BirthDate;
-                    teacherForUpdate.Patronymic = request.Patronymic;
-                    teacherForUpdate.Name = request.Name;
 
                     var updatedTeacher = await _teacherRepository.UpdateAsync(teacherForUpdate);
                 }

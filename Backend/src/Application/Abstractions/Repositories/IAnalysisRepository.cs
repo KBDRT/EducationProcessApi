@@ -13,6 +13,9 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<AnalysisCriteria?> GetCriteriaByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
+
+        public Task<List<AnalysisCriteria>?> GetCriteriasByOptionsIdAsync(List<Guid> optionsId, CancellationToken cancellationToken = default);
+
         public Task<List<AnalysisCriteria>?> GetByTargetAsync(AnalysisTarget target, CancellationToken cancellationToken = default);
 
         public Task CreateRangeAsync(List<AnalysisCriteria> criterias, CancellationToken cancellationToken = default);

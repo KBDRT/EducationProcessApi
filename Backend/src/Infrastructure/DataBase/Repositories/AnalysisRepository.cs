@@ -67,5 +67,14 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
 
             return criteria;
         }
+
+        public async Task<List<AnalysisCriteria>?> GetCriteriasByOptionsIdAsync(List<Guid> optionsId, CancellationToken cancellationToken = default)
+        {
+            return await _context.AnalyzeCriterions
+                                        .Where(p => p.Options.Any(opt => optionsId.Contains(opt.Id)))
+                                        .Include(y => y.Options.Where(z => optionsId.Contains(z.Id)))
+                                        .OrderBy(x => x.Order)
+                                        .ToListAsync(cancellationToken);
+        }
     }
 }

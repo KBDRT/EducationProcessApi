@@ -38,7 +38,7 @@ namespace Application.Cache.Implementation
             _logger = logger;
         }
 
-        public CacheManager Create(CacheManagerTypes type)
+        public ICacheManager Create(CacheManagerTypes type)
         {
             CacheManager? manager = null;
             switch (type)

@@ -1,12 +1,11 @@
 ﻿using Application.Abstractions.Repositories;
 using Application.CQRS.Result.CQResult;
+using Application.Helpers;
 using Application.Validators.Base;
-using EducationProcessAPI.Domain.Entities;
+using Domain.Entities.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
+using System.Security.Claims;
 
 namespace Application.CQRS.Auth.Commands.LoginUser
 {
@@ -14,39 +13,43 @@ namespace Application.CQRS.Auth.Commands.LoginUser
     {
         private readonly IAuthRepository _authRepository;
         private readonly IValidatorFactoryCustom _validatorFactory;
+        private readonly JwtTokenGenerator _tokenGenerator;
 
         public LoginUserCommandHandler(IAuthRepository authRepository,
-                                       IValidatorFactoryCustom validatorFactory)
+                                       IValidatorFactoryCustom validatorFactory,
+                                       JwtTokenGenerator generator)
         {
             _authRepository = authRepository;
             _validatorFactory = validatorFactory;
+            _tokenGenerator = generator;
         }
 
         public async Task<CQResult<string>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
-            var user = await _authRepository.GetUserByNameAsync(request.Login);
-
-            var key = "KEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEYKEY";
-
             var result = new CQResult<string>();
 
+            var user = await _authRepository.GetUserByNameAsync(request.Login, cancellationToken);
             if (user != null)
             {
-                var verifiedResult = new PasswordHasher<User>().VerifyHashedPassword(user, user.Password, request.Password);
-
-                var jwtToken = new JwtSecurityToken(
-                    expires: DateTime.UtcNow.AddHours(1),
-                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
-                    SecurityAlgorithms.HmacSha256
-                    ));
-
-                var jwtTokenString = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-
-                result.SetResultData(jwtTokenString);
+                var verifiedResult = new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHashed, request.Password);
+                if (verifiedResult == PasswordVerificationResult.Success)
+                {
+                    var claims = CreateClaimForUser(user);
+                    var token = _tokenGenerator.GetNewJwtTokenString(claims);
+                    result.SetResultData(token);
+                }
             }
-
 
             return result;
         }
+
+        private List<Claim> CreateClaimForUser(User user)
+        {
+            return
+            [
+                new Claim("user", user.Id.ToString()),
+            ];
+        }
+
     }
 }

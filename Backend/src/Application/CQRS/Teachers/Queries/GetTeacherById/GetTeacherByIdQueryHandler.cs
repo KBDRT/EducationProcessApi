@@ -44,9 +44,9 @@ namespace Application.CQRS.Teachers.Queries.GetTeacherById
             return new
             (
                 teacher.Id,
-                teacher.Surname,
-                teacher.Name,
-                teacher.Patronymic,
+                teacher.Initials.Surname,
+                teacher.Initials.Name,
+                teacher.Initials.Patronymic,
                 teacher.BirthDate
             );
         }

@@ -1,6 +1,7 @@
 ﻿using Application.DTO;
 using EducationProcess.Presentation.Contracts.Group;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation;
 
@@ -21,6 +22,7 @@ namespace EducationProcess.Presentation.Controllers
 
 
         [HttpPost]
+        [Authorize(Policy = "RoleHead")]
         public async Task<IActionResult> CreateAsync([FromBody] CreateGroupRequest request)
         {
             var result = await _groupService.CreateAsync(new Application.DTO.CreateGroupDto(request.Name,
@@ -31,8 +33,8 @@ namespace EducationProcess.Presentation.Controllers
         }
 
         [HttpPost("upload")]
-
         [Consumes("multipart/form-data")]
+        [Authorize(Policy = "RoleTeacher")]
 
         public async Task<IActionResult> CreateFromFile([FromForm] CreateGroupsFromFileRequest request)
         {
