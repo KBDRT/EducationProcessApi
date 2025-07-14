@@ -95,7 +95,9 @@ namespace EducationProcessAPI.Application.Services.CRUD.Implementation
                 using var fileStream = groupDto.File.OpenReadStream();
                 var groups = await _fileParser.ParseAsync(fileStream);
                 ChangeGroupsList(ref groups, union, startYear);
+
                 await _groupRepository.CreateRangeAsync(groups);
+
                 _cacheManager.Remove(GetCacheKey(startYear));
             }
 

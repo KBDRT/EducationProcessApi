@@ -10,6 +10,8 @@ using Application.CQRS.Teachers.Commands.UpdateTeacher;
 using Application.DTO;
 using Application.Helpers;
 using Application.Mapping;
+using Application.Services.Helpers.Definition;
+using Application.Services.Helpers.Implementation;
 using Application.Validators.Base;
 using Application.Validators.CRUD;
 using Application.Validators.CRUD.Create;
@@ -24,6 +26,8 @@ using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementation;
 using EducationProcessAPI.Infrastructure.Files.Parsers;
 using FluentValidation;
+using Infrastructure.Background;
+using Infrastructure.DataBase.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Presentation.Mapping;
 
@@ -53,6 +57,8 @@ namespace Presentation.Extensions
             _services.AddScoped<IDirectionService, DirectionService>();
             _services.AddScoped<IGroupService, GroupService>();
             _services.AddScoped<ILessonService, LessonService>();
+
+            _services.AddScoped<StatisticService, TableStatisticService>();
         }
 
         private static void AddCaches()
@@ -89,6 +95,9 @@ namespace Presentation.Extensions
             _services.AddScoped<ILessonRepository, LessonRepository>();
             _services.AddScoped<IAnalysisRepository, AnalysisRepository>();
             _services.AddScoped<IAuthRepository, AuthRepository>();
+            _services.AddScoped<IStatisticsRepository, StatiscRepository>();
+
+            _services.AddScoped<IBaseRepository<Lesson>, BaseRepository<Lesson>>();
         }
 
         private static void AddParsers()
@@ -111,6 +120,8 @@ namespace Presentation.Extensions
         {
             _services.AddAutoMapper(typeof(MappingProfileDto));
             _services.AddAutoMapper(typeof(MappingProfileRequest));
+
+            _services.AddHostedService<StatisticsFormerBackgroundService>();
         }
 
     }

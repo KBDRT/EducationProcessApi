@@ -45,12 +45,27 @@ namespace EducationProcess.Presentation.Controllers
                 return BadRequest("Empty file");
             }
 
+            if (Path.GetExtension(file.FileName) != ".docx")
+            {
+                return BadRequest("Incorrect format");
+            }
+
+
             var result = await _groupService.CreateFromFileAsync(new CreateGroupFromFileDto(request.unionId, 
                                                                                 request.file, 
                                                                                 request.educationYear));
 
             return FormResultFromService(result);
         }
+
+
+        [HttpPost("uploadfiles")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateFromFiles(List<IFormFile> request)
+        {
+            return Ok();   
+        }
+
 
     }
 }

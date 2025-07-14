@@ -1,6 +1,5 @@
 ﻿
 using Domain.Entities.Analysis;
-using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 
 namespace EducationProcessAPI.Application.Abstractions.Repositories
@@ -12,7 +11,6 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
         public Task<Guid> CreateOptionAsync(CriterionOption newOption, CancellationToken cancellationToken = default);
 
         public Task<AnalysisCriteria?> GetCriteriaByIdAsync(Guid id, CancellationToken cancellationToken = default);
-
 
         public Task<List<AnalysisCriteria>?> GetCriteriasByOptionsIdAsync(List<Guid> optionsId, CancellationToken cancellationToken = default);
 

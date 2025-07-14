@@ -1,14 +1,15 @@
-﻿using Application.CQRS.Teachers.Commands.CreateTeacher;
+﻿using Application.Auth;
+using Application.Auth.Policy.Requirements;
+using Application.CQRS.Teachers.Commands.CreateTeacher;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.SpectreConsole;
 using System.Text;
 using System.Text.Json.Serialization;
-using Serilog.Sinks.SpectreConsole;
-using Application.Auth;
-using Application.Auth.Policy.Requirements;
 
 namespace Presentation.Extensions
 {
@@ -54,7 +55,37 @@ namespace Presentation.Extensions
             });
 
             _services.AddEndpointsApiExplorer();
-            _services.AddSwaggerGen();
+            _services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+                c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    In = ParameterLocation.Header,
+                    Description = "Basic Authorization header using the Bearer scheme."
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basic"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+            });
+
+
+
         }
 
         private static void AddAuth()

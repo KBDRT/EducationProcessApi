@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Analysis;
 using Domain.Entities.Auth;
+using Domain.Entities.Stats;
 using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using EducationProcessAPI.Infrastructure.DataBase.Configurations;
@@ -33,6 +34,8 @@ public class ApplicationContext : DbContext
     public DbSet<Permission> Permissions { get; set; } = null!;
 
     public DbSet<Role> Roles { get; set; } = null!;
+
+    public DbSet<GeneralStatistics> Statistics { get; set; } = null!;
 
     public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)

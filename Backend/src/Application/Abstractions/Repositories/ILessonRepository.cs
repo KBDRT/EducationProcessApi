@@ -6,7 +6,6 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
     {
         public Task<Guid> CreateAsync(Lesson newLesson);
 
-
         public Task<List<Lesson>?> GetByGroupIdAsync(Guid groupId);
 
         public Task<Lesson?> GetByIdAsync(Guid id);

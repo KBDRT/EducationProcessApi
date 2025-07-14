@@ -10,7 +10,7 @@ namespace Application.Auth.Policy.UploadEduPlan
     {
         protected async override Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
         {
-            var claimUserId = context.User.FindFirst(c => c.Type == "user");
+            var claimUserId = context.User?.FindFirst(c => c.Type == "user");
             if (claimUserId == null || !Guid.TryParse(claimUserId.Value, out Guid userId))
             {
                 context.Fail();
