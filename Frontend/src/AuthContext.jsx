@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post('https://localhost:7032/login', loginData, {
             withCredentials: true,
         });
-        setUser(response.data.user);
+        setUser(response.data);
     };
 
     const register = async (registerData) => {

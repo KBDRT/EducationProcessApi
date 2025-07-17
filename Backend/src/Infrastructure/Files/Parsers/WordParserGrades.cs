@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
+﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
 using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
@@ -8,9 +9,9 @@ namespace EducationProcessAPI.Infrastructure.Files.Parsers
     public class WordParserGrades : WordParseBase<AnalysisCriteria>
     {
 
-        protected override List<AnalysisCriteria> ParseFileData()
+        protected override List<AnalysisCriteria> ParseFileData(WordprocessingDocument document)
         {
-            var tables = _document.MainDocumentPart.Document.Body.Elements<Table>();
+            var tables = document.MainDocumentPart.Document.Body.Elements<Table>();
 
             List<AnalysisCriteria> criterias = new List<AnalysisCriteria>();
 

@@ -1,6 +1,8 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
 using Domain.Entities.Analysis;
+using Domain.Entities.Auth;
 using EducationProcessAPI.Application.Abstractions.Repositories;
+using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
 using Microsoft.EntityFrameworkCore;
 
@@ -75,6 +77,33 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
                                         .Include(y => y.Options.Where(z => optionsId.Contains(z.Id)))
                                         .OrderBy(x => x.Order)
                                         .ToListAsync(cancellationToken);
+        }
+
+        public async Task<AnalysisDocument?> GetDocumentByIdAsync(Guid documentId, CancellationToken cancellationToken = default)
+        {
+            return await _context.AnalysisDocuments
+                                 .Include(y => y.SelectedOptions)
+                                 .ThenInclude(y => y.Criterion)
+                                 .Include(y => y.ArtUnion)
+                                 .Include(y => y.Lesson)
+                                 .Include(y => y.Teacher)
+                                 .SingleOrDefaultAsync(x => x.Id == documentId, cancellationToken);
+                                 
+        }
+
+        public async Task<Guid> GetFileIdForDocumentAsync(Guid documentId, CancellationToken cancellationToken = default)
+        {
+           return await _context.AnalysisDocuments
+                                    .Where(x => x.Id == documentId)
+                                    .Select(x => x.FileId)       
+                                    .SingleOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task SetFileForDocumentAsync(Guid documentId, Guid fileId, CancellationToken cancellationToken = default)
+        {
+            await _context.AnalysisDocuments.Where(t => t.Id == documentId)
+                                   .ExecuteUpdateAsync(u => u
+                                   .SetProperty(f => f.FileId, fileId), cancellationToken: cancellationToken);
         }
     }
 }

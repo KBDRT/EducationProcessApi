@@ -24,7 +24,7 @@ namespace Application.Mapping
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Login, opt => opt.MapFrom(src => src.Login))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Initials, opt => opt.MapFrom(src => src.Initials.Initials))
+                .ForMember(dest => dest.Initials, opt => opt.MapFrom(src => src.Initials.Short))
                 .ForMember(dest => dest.Roles, opt => opt.MapFrom(src => src.Roles));
         }
     }

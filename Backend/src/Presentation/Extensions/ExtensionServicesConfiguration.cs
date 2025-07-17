@@ -1,10 +1,13 @@
-﻿using Application.Auth;
-using Application.Auth.Policy.Requirements;
+﻿using Application.Auth.Policy.Requirements;
 using Application.CQRS.Teachers.Commands.CreateTeacher;
+using Application.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Minio;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SpectreConsole;
@@ -84,21 +87,20 @@ namespace Presentation.Extensions
                 });
             });
 
-
+            AddMinio();
 
         }
 
         private static void AddAuth()
         {
-            var key = _configuration?.GetSection("AuthenticationSettings")?.GetSection("SecretKey").Value;
+            var authSettings = _services.BuildServiceProvider().GetRequiredService<IOptions<AuthSettings>>().Value;
 
-            if (String.IsNullOrWhiteSpace(key))
+            if (String.IsNullOrWhiteSpace(authSettings.SecretKey))
             {
                 Log.Fatal("No Secretkey for Authentication!");
                 return;
             }
 
-            var tokenName = _configuration?.GetSection("AuthenticationSettings")?.GetSection("CookieNameForToken").Value;
             _services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -115,14 +117,14 @@ namespace Presentation.Extensions
                     ValidateAudience = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authSettings.SecretKey))
                 };
 
                 options.Events = new JwtBearerEvents 
                 {
                     OnMessageReceived = context =>
                     {
-                        context.Token = context.Request.Cookies[tokenName];
+                        context.Token = context.Request.Cookies[authSettings.CookieNameForToken];
 
                         return Task.CompletedTask;
                     }
@@ -140,7 +142,6 @@ namespace Presentation.Extensions
         private static void AddDatabase()
         {
             string? connectionDB = _configuration?.GetConnectionString("DefaultConnectionDataBase");
-
             if (String.IsNullOrWhiteSpace(connectionDB))
             {
                 Log.Fatal("DatabasePostrge is not working! No connection string");
@@ -191,6 +192,26 @@ namespace Presentation.Extensions
         private static void AddSettings()
         {
             _services.Configure<AuthSettings>(_configuration.GetSection("AuthenticationSettings"));
+            _services.Configure<MinioSettings>(_configuration.GetSection("MinioS3"));
+        }
+
+
+        private static void AddMinio()
+        {
+            string? connectionMinio = _configuration?.GetConnectionString("DefaultConnectionMinio");
+
+            if (String.IsNullOrWhiteSpace(connectionMinio))
+            {
+                Log.Fatal("Minio is not working! No connection string");
+                return;
+            }
+
+            var minioSettings = _services.BuildServiceProvider().GetRequiredService<IOptions<MinioSettings>>().Value;
+            _services.AddMinio(configureClient => configureClient
+            .WithEndpoint(connectionMinio)
+            .WithCredentials(minioSettings.Login, minioSettings.Password)
+            .WithSSL(false)
+            .Build());
         }
 
     }

@@ -1,16 +1,16 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
 using EducationProcessAPI.Domain.Entities;
 using EducationProcessAPI.Application.Parsers;
+using DocumentFormat.OpenXml.Packaging;
 
 namespace EducationProcessAPI.Infrastructure.Files.Parsers
 {
     public class WordParseLesson : WordParseBase<Group>
     {
-
-        protected override List<Group> ParseFileData()
+        protected override List<Group> ParseFileData(WordprocessingDocument document)
         {
 
-            var tables = _document.MainDocumentPart.Document.Body.Elements<Table>();
+            var tables = document.MainDocumentPart.Document.Body.Elements<Table>();
 
             int i = 1;
 

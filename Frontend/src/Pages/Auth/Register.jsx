@@ -57,28 +57,6 @@ export default function RegisterPage() {
     }));
   };
 
-
-  const registerUser = async () => {
-    try {
-        const response = await axios.post("https://localhost:7032/register", 
-            {
-                Login : formData.Login,
-                Password : formData.Password,
-            }
-            ,
-            {
-                withCredentials: true, 
-            }
-        )
-        return response.data
-    } catch (error) {
-        console.log(error)
-        return false;
-    }
-
-  }
-
-
   return (
     <div >
        <Fieldset.Root size="sm" maxW="md" mx="auto" pt="10%">

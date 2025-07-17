@@ -13,6 +13,7 @@ services:
   depends_on:
    - db
    - redis
+   - minio
 
  db:
   env_file: .env
@@ -36,6 +37,19 @@ services:
   volumes:
       - redis_data:/data  
 
+ minio:
+    image: minio/minio
+    ports:
+      - "9000:9000" 
+      - "9001:9001"  
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
 volumes:
   postgres_data:  
-  redis_data:     
+  redis_data:    
+  minio_data:

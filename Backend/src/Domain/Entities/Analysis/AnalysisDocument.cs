@@ -11,12 +11,10 @@ namespace Domain.Entities.Analysis
     /// <summary>
     ///  Rich Domain Model
     /// </summary>
-    public class AnalysisDocument
+    public class AnalysisDocument : BaseEntity
     {
 
-        private List<AnalysisCriteria> _selectedCriterias = [];
-
-        public Guid Id { get; private set; }
+        private List<CriterionOption> _selectedOptions = [];
 
         public AnalysisTarget AnalysisTarget { get; private set; }
 
@@ -34,7 +32,12 @@ namespace Domain.Entities.Analysis
 
         public string AuditorName { get; private set; } = string.Empty;
 
-        public ICollection<AnalysisCriteria>? SelectedCriterias => _selectedCriterias;
+        public int ChildrenCount { get; private set; } = 0;
+
+        public Guid FileId { get; private set; } = Guid.Empty;
+
+        public ICollection<CriterionOption> SelectedOptions => _selectedOptions;
+
 
         public AnalysisDocument()
         {
@@ -47,11 +50,19 @@ namespace Domain.Entities.Analysis
             AnalysisTarget = target;
         }
 
+        public void SetChildrenCount(int count)
+        {
+            if (count > 0)
+            {
+                ChildrenCount = count;
+            }
+        }
+
         private void SetInitData()
         {
             Id = Guid.NewGuid();
             CreatedTime = DateTime.Now;
-            _selectedCriterias = [];
+            _selectedOptions = [];
         }
 
         public void SetLesson(Lesson? lesson)
@@ -78,14 +89,14 @@ namespace Domain.Entities.Analysis
                 AuditorName = name;
         }
 
-        public void AddCriterias(List<AnalysisCriteria> criterias)
+        public void AddCriterias(List<AnalysisCriteria>? criterias)
         {
             if (criterias == null)
                 return;
 
             foreach (var criteria in criterias)
             {
-                _selectedCriterias.Add(criteria);
+                _selectedOptions.AddRange(criteria.Options);
             }
         }
 
@@ -93,5 +104,20 @@ namespace Domain.Entities.Analysis
         {
            return new AnalysisDocumentValidator().Validate(this);
         }
+
+        public Dictionary<string, string> GetDefaultMarksForOutput()
+        {
+            return new Dictionary<string, string>
+            {
+                { "{FIO}", Teacher?.Initials?.Short ?? string.Empty },
+                { "{Activity}", ArtUnion?.Name ?? string.Empty },
+                { "{Date}", Lesson?.Date?.ToShortDateString()},
+                { "{Lesson}", Lesson?.Name ?? string.Empty },
+                { "{Teacher}", Teacher?.Initials?.Short ?? string.Empty },
+                { "{ChildrenCount}", ChildrenCount.ToString() },
+                { "{Auditor}", AuditorName ?? string.Empty },
+            };
+        }
+
     }
 }

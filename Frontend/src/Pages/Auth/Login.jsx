@@ -12,11 +12,14 @@ import {
 } from "@chakra-ui/react"
 
 import axios from "axios"
+import { useAuth } from '@/AuthContext';
 axios.defaults.withCredentials = true;
 
 
 
 export default function LoginPage() {
+
+  const { user, login } = useAuth();
 
   const request = {
     Login: "",
@@ -35,25 +38,8 @@ export default function LoginPage() {
 
 
   const loginUser = async () => {
-    try {
-        const response = await axios.post("https://localhost:7032/login", 
-            {
-                Login : formData.Login,
-                Password : formData.Password,
-            }
-            ,
-            {
-                withCredentials: true, 
-            }
-        )
-        return response.data
-    } catch (error) {
-        console.log(error)
-        return false;
-    }
-
+    await login(formData);
   }
-
 
   return (
     <div >

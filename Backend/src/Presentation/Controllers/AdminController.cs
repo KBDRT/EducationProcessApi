@@ -1,4 +1,6 @@
-﻿using Application.CQRS.Auth.Commands.CreateRole;
+﻿using Amazon.S3;
+using Application.CQRS.Analysis.Commands.CreateFileForDocument;
+using Application.CQRS.Auth.Commands.CreateRole;
 using Application.CQRS.Auth.Commands.RegisterUser;
 using Application.CQRS.Auth.Commands.SetRoleForUser;
 using Application.CQRS.Auth.Queries.GetUsersWithRoles;
@@ -6,7 +8,13 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using Minio;
+using Minio.DataModel;
+using Minio.DataModel.Args;
 using Presentation.Contracts.Auth;
+using System.Runtime.Intrinsics.X86;
+using System.Security.AccessControl;
 
 namespace Presentation.Controllers
 {
@@ -17,11 +25,13 @@ namespace Presentation.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
+        private readonly IMinioClient _minioClient;
 
-        public AdminController(IMediator mediator, IMapper mapper)
+        public AdminController(IMediator mediator, IMapper mapper, IMinioClient minioClient)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _minioClient = minioClient;
         }
 
         [HttpPost("register")]
@@ -67,6 +77,5 @@ namespace Presentation.Controllers
 
             await _mediator.Send(command);
         }
-
     }
 }

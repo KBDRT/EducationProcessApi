@@ -1,12 +1,7 @@
-﻿using Application.Auth;
-using Application.CQRS.Auth.Commands.CreateRole;
-using Application.CQRS.Auth.Commands.LoginUser;
-using Application.CQRS.Auth.Commands.RegisterUser;
-using Application.CQRS.Auth.Commands.SetRoleForUser;
-using Application.CQRS.Auth.Queries.GetUsersWithRoles;
+﻿using Application.CQRS.Auth.Commands.LoginUser;
 using Application.CQRS.Result.CQResult;
+using Application.Settings;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Presentation.Contracts.Auth;
@@ -30,8 +25,6 @@ namespace Presentation.Controllers
         [HttpGet("/checkauth")]
         public async Task<IActionResult> CheckAuth()
         {
-            var test = Guid.NewGuid();
-
             if (User.Identity?.IsAuthenticated == true)
             {
                 return Ok();
@@ -62,7 +55,7 @@ namespace Presentation.Controllers
                     Expires = DateTime.UtcNow.Add(_authSettings.Value.TokenLifeTime),
                 });
 
-                return Ok();
+                return Ok(request.Login);
             }
 
             return NotFound();

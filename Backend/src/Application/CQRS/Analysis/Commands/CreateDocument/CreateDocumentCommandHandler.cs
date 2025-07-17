@@ -1,5 +1,8 @@
 ﻿
+using Application.Abstractions.Repositories;
+using Application.CQRS.Analysis.Commands.CreateCriteria;
 using Application.CQRS.Result.CQResult;
+using Application.Validators.Base;
 using Domain.Entities.Analysis;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
@@ -11,25 +14,46 @@ namespace Application.CQRS.Analysis.Commands.CreateDocument
     {
         private readonly IAnalysisRepository _analysisRepository;
         private readonly ILessonRepository _lessonRepository;
+        private readonly IBaseRepository<AnalysisCriteria> _baseRepository;
+        private readonly IValidatorFactoryCustom _validatorFactory;
 
         public CreateDocumentCommandHandler(IAnalysisRepository analysisRepository,
-                                            ILessonRepository lessonRepository)
+                                            ILessonRepository lessonRepository,
+                                            IBaseRepository<AnalysisCriteria> baseRepository,
+                                            IValidatorFactoryCustom validatorFactory)
         {
             _analysisRepository = analysisRepository;
             _lessonRepository = lessonRepository;
+            _baseRepository = baseRepository;
+            _validatorFactory = validatorFactory;
         }
 
         public async Task<CQResult<Guid>> Handle(CreateDocumentCommand request, CancellationToken cancellationToken)
         {
-            var serviceResult = new CQResult<Guid>();
-            AnalysisDocument document = new AnalysisDocument(AnalysisTarget.Lesson);
+            var validation = _validatorFactory.GetValidator<CreateDocumentCommand>().Validate(request);
+            var serviceResult = new CQResult<Guid>(validation);
 
-            if (request.OptionsId != null && request.OptionsId.Count > 0)
+            if (!validation.IsValid)
             {
-                var criterias = await _analysisRepository.GetCriteriasByOptionsIdAsync(request.OptionsId);
+                return serviceResult;
+            }
+
+            AnalysisDocument document = new(AnalysisTarget.Lesson);
+            if (request?.OptionsId?.Count > 0)
+            {
+                var criteriasCount = _baseRepository.GetRecordsCount();
+                var criterias = await _analysisRepository.GetCriteriasByOptionsIdAsync(request.OptionsId, cancellationToken);
+
+                if (criteriasCount != criterias.Count)
+                {
+                    serviceResult.AddMessage("Не все критерии заполнены", "OptionsId");
+                    return serviceResult;
+                }
+
                 document.AddCriterias(criterias);
             }
             
+            document.SetChildrenCount(request.ChildrenCount);
             document.SetDesctiption(request.ResultDescription);
             document.SetDate(request.CheckDate);
             document.SetAuditor(request.AuditorName);
@@ -40,7 +64,7 @@ namespace Application.CQRS.Analysis.Commands.CreateDocument
             var documentStatus = document.IsDocumentCorrect();
             if (documentStatus.IsValid)
             {
-                var id = await _analysisRepository.CreateDocumentAsync(document);
+                var id = await _analysisRepository.CreateDocumentAsync(document, cancellationToken);
                 serviceResult.SetResultData(id);
 
                 return serviceResult;

@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace EducationProcessAPI.Domain.Entities
 {
-    public class Group
+    public class Group : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
 
         [MaxLength(4)]

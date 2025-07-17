@@ -1,8 +1,10 @@
 ﻿using Application.Abstractions.Repositories;
+using Application.Abstractions.S3;
 using Application.Auth.Policy.UploadEduPlan;
 using Application.Cache.Definition;
 using Application.Cache.Implementation;
 using Application.CQRS.Analysis.Commands.CreateCriteria;
+using Application.CQRS.Analysis.Commands.CreateDocument;
 using Application.CQRS.Analysis.Commands.CreateOption;
 using Application.CQRS.Auth.Commands.RegisterUser;
 using Application.CQRS.Teachers.Commands.CreateTeacher;
@@ -16,8 +18,10 @@ using Application.Validators.Base;
 using Application.Validators.CRUD;
 using Application.Validators.CRUD.Create;
 using Application.Validators.CRUD.General;
+using Domain.Entities.Analysis;
 using EducationProcessAPI.Application.Abstractions.Repositories;
 using EducationProcessAPI.Application.DTO;
+using EducationProcessAPI.Application.Fillers;
 using EducationProcessAPI.Application.Parsers;
 using EducationProcessAPI.Application.Services.CRUD.Definition;
 using EducationProcessAPI.Application.Services.CRUD.Implementation;
@@ -28,6 +32,7 @@ using EducationProcessAPI.Infrastructure.Files.Parsers;
 using FluentValidation;
 using Infrastructure.Background;
 using Infrastructure.DataBase.Repositories;
+using Infrastructure.Files.Filler;
 using Microsoft.AspNetCore.Authorization;
 using Presentation.Mapping;
 
@@ -46,7 +51,7 @@ namespace Presentation.Extensions
             AddServices();
             AddValidators();
             AddRepositories();
-            AddParsers();
+            AddFileProcess();
             AddCaches();
             AddOthers();
         }
@@ -75,6 +80,9 @@ namespace Presentation.Extensions
             _services.AddScoped<IValidator<Guid>, GuidEmptyValidator>();
 
             _services.AddScoped<IValidator<CreateCriteriaCommand>, CreateCriteriaValidator>();
+
+            _services.AddScoped<IValidator<CreateDocumentCommand>, CreateDocumentValidator>();
+
             _services.AddScoped<IValidator<CreateDirectionDto>, CreateDirectionValidator>();
             _services.AddScoped<IValidator<CreateGroupFromFileDto>, CreateGroupFromFileValidator>();
             _services.AddScoped<IValidator<CreateGroupDto>, CreateGroupValidator>();
@@ -98,17 +106,21 @@ namespace Presentation.Extensions
             _services.AddScoped<IStatisticsRepository, StatiscRepository>();
 
             _services.AddScoped<IBaseRepository<Lesson>, BaseRepository<Lesson>>();
+            _services.AddScoped<IBaseRepository<AnalysisCriteria>, BaseRepository<AnalysisCriteria>>();
         }
 
-        private static void AddParsers()
+        private static void AddFileProcess()
         {
             _services.AddTransient<IParseFile<Group>, WordParseLesson>();
             _services.AddTransient<IParseFile<AnalysisCriteria>, WordParserGrades>();
+
+            _services.AddTransient<IFillFile<AnalysisDocument>, WordFillerDocument>();
         }
 
         private static void AddHelpers()
         {
             _services.AddScoped<JwtTokenGenerator>();
+            _services.AddScoped<IMinioHelper, MinioHelper>();
         }
 
         private static void AddPolicy()

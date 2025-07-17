@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
+using Domain.Entities.Analysis;
 
 namespace EducationProcessAPI.Domain.Entities.LessonAnalyze
 {
-    public class CriterionOption
+    public class CriterionOption : BaseEntity
     {
-        public Guid Id { get; set; }    
-
         public string Name { get; set; } = string.Empty;
         public AnalysisCriteria Criterion { get; set; } = new AnalysisCriteria();
+
+        public List<AnalysisDocument> Document { get; set; } = [];
 
     }
 }

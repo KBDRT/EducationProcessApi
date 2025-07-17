@@ -1,10 +1,8 @@
 ﻿
 namespace Domain.Entities.Auth
 {
-    public class Role
+    public class Role : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
 
         public string NameRu { get; set; } = string.Empty;  

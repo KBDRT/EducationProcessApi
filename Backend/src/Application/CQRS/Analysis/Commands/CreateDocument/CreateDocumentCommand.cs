@@ -11,7 +11,8 @@ namespace Application.CQRS.Analysis.Commands.CreateDocument
         DateOnly CheckDate,
         string ResultDescription,
         string AuditorName,
-        List<Guid>? OptionsId
+        List<Guid>? OptionsId,
+        int ChildrenCount
     )
     : IRequest<CQResult<Guid>>;
 }

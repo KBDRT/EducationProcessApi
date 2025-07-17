@@ -1,13 +1,10 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Auth;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EducationProcessAPI.Domain.Entities
 {
-    public class Teacher
+    public class Teacher : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public PersonInitials Initials { get; set; } = new();
 
         public DateOnly BirthDate { get; set; } = new DateOnly();

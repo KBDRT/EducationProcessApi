@@ -1,9 +1,12 @@
 ﻿using Application.CQRS.Analysis.Commands.CreateCriteria;
 using Application.CQRS.Analysis.Commands.CreateCriteriasFromFile;
 using Application.CQRS.Analysis.Commands.CreateDocument;
+using Application.CQRS.Analysis.Commands.CreateFileForDocument;
 using Application.CQRS.Analysis.Commands.CreateOption;
 using Application.CQRS.Analysis.Commands.DeleteCriteriasByTarget;
+using Application.CQRS.Analysis.Querires.DownloadFileForDocument;
 using Application.CQRS.Analysis.Querires.GetCriteriasByTarget;
+using Application.CQRS.Result.CQResult;
 using Application.DTO;
 using CSharpFunctionalExtensions;
 using EducationProcess.Presentation.Contracts;
@@ -99,6 +102,24 @@ namespace EducationProcess.Presentation.Controllers
             var result = await _mediator.Send(new GetCriteriasByTargetQuery(target), cancellationToken);
 
             return FormResultFromService(result);
+        }
+
+
+
+        [HttpPost("downloaddocument")]
+        public async Task<IActionResult> DownloadDocument(Guid documentId, CancellationToken cancellationToken)
+        {
+
+            var stream = await _mediator.Send(new DowndloadFileForDocumentCommand(documentId));
+            if (stream.ResultCode == CQResultStatusCode.Success && stream.ResultData != null)
+            {
+                return File(stream.ResultData, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "example.docx");
+            }
+            else
+            {
+                return NotFound();
+            }
+  
         }
 
     }

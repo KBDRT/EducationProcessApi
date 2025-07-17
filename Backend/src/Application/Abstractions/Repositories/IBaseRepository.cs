@@ -4,5 +4,7 @@
     {
         public int GetRecordsCount();
 
+        public Task<TEntity?> GetRecordByIdAsync(Guid id);
+
     }
 }

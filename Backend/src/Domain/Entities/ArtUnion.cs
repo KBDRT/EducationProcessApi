@@ -1,10 +1,10 @@
 ﻿
+using Domain.Entities;
+
 namespace EducationProcessAPI.Domain.Entities
 {
-    public class ArtUnion
+    public class ArtUnion : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
 
         public ArtDirection Direction { get; set; } = new ArtDirection();

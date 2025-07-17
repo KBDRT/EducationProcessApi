@@ -1,4 +1,4 @@
-﻿namespace Application.Auth
+﻿namespace Application.Settings
 {
     public class AuthSettings
     {

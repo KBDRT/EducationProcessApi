@@ -78,7 +78,7 @@ namespace Application.CQRS.Teachers.Queries.GetTeachersByEducationYear
                     unionsShort.Add(unionShort);
                 }
 
-                TeachersForEduYearDto teacherShort = new(teacher.Initials.Initials, unionsShort);
+                TeachersForEduYearDto teacherShort = new(teacher.Initials.Short, unionsShort);
                 outputTeachers.Add(teacherShort);
             }
 

@@ -1,9 +1,5 @@
-﻿using Domain.Entities.Analysis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
+using Domain.Entities.Analysis;
 
 namespace EducationProcessAPI.Domain.Entities.LessonAnalyze
 {
@@ -13,11 +9,8 @@ namespace EducationProcessAPI.Domain.Entities.LessonAnalyze
         Event
     }
 
-
-    public class AnalysisCriteria
+    public class AnalysisCriteria : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public AnalysisTarget AnalysisTarget { get; set; }
 
         public string Name { get; set; } = string.Empty;
@@ -28,8 +21,6 @@ namespace EducationProcessAPI.Domain.Entities.LessonAnalyze
         public int Order { get; set; }
 
         public List<CriterionOption> Options { get; set; } = [];
-
-        public List<AnalysisDocument> Document { get; set; } = [];
 
     }
 }

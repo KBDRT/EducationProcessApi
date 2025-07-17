@@ -9,7 +9,6 @@
             SaveStats();
         }
 
-
         protected abstract void GetInfo();
 
         protected abstract void CalcStats();

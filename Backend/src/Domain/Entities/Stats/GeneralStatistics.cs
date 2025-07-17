@@ -7,11 +7,8 @@
         Teachers,
     }
 
-
-    public class GeneralStatistics
+    public class GeneralStatistics : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public StatisticsTarget Target { get; set; }
 
         public double TotalAmount { get; set; }

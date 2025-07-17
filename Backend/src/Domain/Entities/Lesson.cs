@@ -1,9 +1,9 @@
-﻿namespace EducationProcessAPI.Domain.Entities
-{
-    public class Lesson
-    {
-        public Guid Id { get; set; }
+﻿using Domain.Entities;
 
+namespace EducationProcessAPI.Domain.Entities
+{
+    public class Lesson : BaseEntity
+    {
         public string Name { get; set; } = string.Empty;
 
         public DateTime? Date { get; set; }
@@ -17,10 +17,6 @@
         public string FormControl { get; set; } = string.Empty;
 
         public Group Group { get; set; } = new Group();
-
-
-
-
 
     }
 }

@@ -22,5 +22,12 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<Guid> CreateDocumentAsync(AnalysisDocument document, CancellationToken cancellationToken = default);
 
+        public Task<AnalysisDocument?> GetDocumentByIdAsync(Guid documentId, CancellationToken cancellationToken = default);
+
+        public Task SetFileForDocumentAsync(Guid documentId, Guid fileId, CancellationToken cancellationToken = default);
+
+        public Task<Guid> GetFileIdForDocumentAsync(Guid documentId, CancellationToken cancellationToken = default);
+
+
     }
 }

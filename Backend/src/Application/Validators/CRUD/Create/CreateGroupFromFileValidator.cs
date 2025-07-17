@@ -5,7 +5,6 @@ namespace Application.Validators.CRUD.Create
 {
     public class CreateGroupFromFileValidator : AbstractValidator<CreateGroupFromFileDto>
     {
-
         public CreateGroupFromFileValidator()
         {
             RuleFor(x => x.UnionId).NotEqual(Guid.Empty);

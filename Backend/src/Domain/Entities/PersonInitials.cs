@@ -11,7 +11,7 @@ namespace Domain.Entities
         public string Patronymic { get; set; } = string.Empty;
 
         [NotMapped]
-        public string Initials
+        public string Short
         {
             get
             {

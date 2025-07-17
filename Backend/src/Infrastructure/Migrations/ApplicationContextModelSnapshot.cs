@@ -21,19 +21,19 @@ namespace Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AnalysisCriteriaAnalysisDocument", b =>
+            modelBuilder.Entity("AnalysisDocumentCriterionOption", b =>
                 {
                     b.Property<Guid>("DocumentId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("SelectedCriteriasId")
+                    b.Property<Guid>("SelectedOptionsId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("DocumentId", "SelectedCriteriasId");
+                    b.HasKey("DocumentId", "SelectedOptionsId");
 
-                    b.HasIndex("SelectedCriteriasId");
+                    b.HasIndex("SelectedOptionsId");
 
-                    b.ToTable("AnalysisCriteriaAnalysisDocument");
+                    b.ToTable("AnalysisDocumentCriterionOption");
                 });
 
             modelBuilder.Entity("Domain.Entities.Analysis.AnalysisDocument", b =>
@@ -55,8 +55,14 @@ namespace Infrastructure.Migrations
                     b.Property<DateOnly>("CheckDate")
                         .HasColumnType("date");
 
+                    b.Property<int>("ChildrenCount")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("FileId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("LessonId")
                         .HasColumnType("uuid");
@@ -386,7 +392,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("RoleUser");
                 });
 
-            modelBuilder.Entity("AnalysisCriteriaAnalysisDocument", b =>
+            modelBuilder.Entity("AnalysisDocumentCriterionOption", b =>
                 {
                     b.HasOne("Domain.Entities.Analysis.AnalysisDocument", null)
                         .WithMany()
@@ -394,9 +400,9 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EducationProcessAPI.Domain.Entities.LessonAnalyze.AnalysisCriteria", null)
+                    b.HasOne("EducationProcessAPI.Domain.Entities.LessonAnalyze.CriterionOption", null)
                         .WithMany()
-                        .HasForeignKey("SelectedCriteriasId")
+                        .HasForeignKey("SelectedOptionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
