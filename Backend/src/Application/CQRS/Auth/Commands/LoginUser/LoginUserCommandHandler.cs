@@ -38,6 +38,14 @@ namespace Application.CQRS.Auth.Commands.LoginUser
                     var token = _tokenGenerator.GetNewJwtTokenString(claims);
                     result.SetResultData(token);
                 }
+                else
+                {
+                    result.AddMessage("Неправильный пароль!", "Password");
+                }
+            }
+            else
+            {
+                result.AddMessage("Пользователь не найден!", "Login");
             }
 
             return result;

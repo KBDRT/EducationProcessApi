@@ -40,7 +40,15 @@ public class ApplicationContext : DbContext
     public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
     {
-        Database.EnsureCreated();   
+        try
+        {
+            Database.EnsureCreated();
+        }
+        catch
+        {
+
+        }
+       
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

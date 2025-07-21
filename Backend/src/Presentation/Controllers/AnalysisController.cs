@@ -6,9 +6,11 @@ using Application.CQRS.Analysis.Commands.CreateOption;
 using Application.CQRS.Analysis.Commands.DeleteCriteriasByTarget;
 using Application.CQRS.Analysis.Querires.DownloadFileForDocument;
 using Application.CQRS.Analysis.Querires.GetCriteriasByTarget;
+using Application.CQRS.Analysis.Querires.GetDocuments;
 using Application.CQRS.Result.CQResult;
 using Application.DTO;
 using CSharpFunctionalExtensions;
+using Domain.Entities.Analysis;
 using EducationProcess.Presentation.Contracts;
 using EducationProcessAPI.Application.DTO;
 using EducationProcessAPI.Domain.Entities.LessonAnalyze;
@@ -100,6 +102,17 @@ namespace EducationProcess.Presentation.Controllers
                                                                                                     CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetCriteriasByTargetQuery(target), cancellationToken);
+
+            return FormResultFromService(result);
+        }
+
+
+        [HttpGet("documents")]
+        public async Task<ActionResult<List<AnalysisDocument>>> GetDocuments(int page,
+                                                                             int pageSize,                               
+                                                                             CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetDocumentsQuery(page, pageSize), cancellationToken);
 
             return FormResultFromService(result);
         }

@@ -28,6 +28,6 @@ namespace EducationProcessAPI.Application.Abstractions.Repositories
 
         public Task<Guid> GetFileIdForDocumentAsync(Guid documentId, CancellationToken cancellationToken = default);
 
-
+        public Task<List<AnalysisDocument>?> GetDocumentsAsync(int page, int size, CancellationToken cancellationToken = default);
     }
 }

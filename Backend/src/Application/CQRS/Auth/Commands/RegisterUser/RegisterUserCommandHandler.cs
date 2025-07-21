@@ -42,6 +42,13 @@ namespace Application.CQRS.Auth.Commands.RegisterUser
                 return result;
             }
 
+            var userInBase = await _authRepository.GetUserByNameAsync(request.Login, cancellationToken);
+            if (userInBase != null)
+            {
+                result.AddMessage("Пользователь с таким логином уже зарегистрирован!", "Login");
+                return result;
+            }
+
             var newUser = _mapper.Map<User>(request);
             newUser.Id = Guid.NewGuid();
 

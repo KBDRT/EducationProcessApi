@@ -47,7 +47,9 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
 
         public async Task DeleteByTargetAsync(AnalysisTarget target, CancellationToken cancellationToken = default)
         {
-            await _context.AnalyzeCriterions.Where(x => x.AnalysisTarget == target).ExecuteDeleteAsync(cancellationToken);
+            await _context.AnalyzeCriterions
+                            .Where(x => x.AnalysisTarget == target)
+                            .ExecuteDeleteAsync(cancellationToken);
         }
 
         public async Task<List<AnalysisCriteria>?> GetByTargetAsync(AnalysisTarget target, CancellationToken cancellationToken = default)
@@ -89,6 +91,17 @@ namespace EducationProcessAPI.Infrastructure.DataBase.Repositories.Implementatio
                                  .Include(y => y.Teacher)
                                  .SingleOrDefaultAsync(x => x.Id == documentId, cancellationToken);
                                  
+        }
+
+        public async Task<List<AnalysisDocument>?> GetDocumentsAsync(int page, int size, CancellationToken cancellationToken = default)
+        {
+            return await _context.AnalysisDocuments
+                                .Skip((page - 1) * size)
+                                .Take(size)
+                                .Include(x => x.Lesson)
+                                .Include(x => x.Teacher)
+                                .Include(x => x.ArtUnion)
+                                .ToListAsync();
         }
 
         public async Task<Guid> GetFileIdForDocumentAsync(Guid documentId, CancellationToken cancellationToken = default)
